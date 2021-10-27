@@ -36,7 +36,7 @@
                             <x-jet-checkbox name="terms" id="terms"/>
 
                             <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                {!! __('Estoy de acuerdo  :terms_of_service and :privacy_policy', [
                                         'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
                                         'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
                                 ]) !!}
@@ -79,29 +79,25 @@
                                 <form class="form-stl" action="{{ route('register') }}" name="frm-login" method="POST" >
                                     @csrf
 									<fieldset class="wrap-title">
-										<h3 class="form-title">Create an account</h3>
-										<h4 class="form-subtitle">Personal infomation</h4>
+										<h3 class="form-title">Crear una cuenta</h3>
 									</fieldset>									
 									<fieldset class="wrap-input">
-										<label for="frm-reg-lname">Name*</label>
-										<input type="text" id="frm-reg-lname" name="name" placeholder="Your name*" :value="name" required autofocus autocomplete="name">
+										<label for="frm-reg-lname">Nombre*</label>
+										<input type="text" id="frm-reg-lname" name="name" placeholder="Indica tu nombre" :value="name" required autofocus autocomplete="name">
 									</fieldset>
 									<fieldset class="wrap-input">
-										<label for="frm-reg-email">Email Address*</label>
-										<input type="email" id="frm-reg-email" name="email" placeholder="Email address" :value="email" required>
+										<label for="frm-reg-email">Email*</label>
+										<input type="email" id="frm-reg-email" name="email" placeholder="Email" :value="email" required>
 									</fieldset>									
-									<fieldset class="wrap-title">
-										<h3 class="form-title">Login Information</h3>
-									</fieldset>
 									<fieldset class="wrap-input item-width-in-half left-item ">
-										<label for="frm-reg-pass">Password *</label>
-										<input type="password" id="frm-reg-pass" name="password" placeholder="Password" required autocomplete="new-password">
+										<label for="frm-reg-pass">Contraseña *</label>
+										<input type="password" id="frm-reg-pass" name="password" placeholder="******" required autocomplete="new-password">
 									</fieldset>
 									<fieldset class="wrap-input item-width-in-half ">
-										<label for="frm-reg-cfpass">Confirm Password *</label>
-										<input type="password" id="frm-reg-cfpass" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
+										<label for="frm-reg-cfpass">Confirmar Contraseña *</label>
+										<input type="password" id="frm-reg-cfpass" name="password_confirmation" placeholder="******" required autocomplete="new-password">
 									</fieldset>
-									<input type="submit" class="btn btn-sign" value="Register" name="register">
+									<input type="submit" class="btn btn-sign" value="Registrarse" name="register">
 								</form>
 							</div>											
 						</div>

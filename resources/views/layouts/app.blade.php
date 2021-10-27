@@ -12,7 +12,16 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
-
+	
+            <!-- Favicon -->
+            <link rel="shortcut icon" href="{{ asset('assets_belle/images/favicon.png') }}" />
+            <!-- Plugins CSS -->
+            <link rel="stylesheet" href="{{ asset('assets_belle/css/plugins.css') }}">
+            <!-- Bootstap CSS -->
+            <link rel="stylesheet" href="{{ asset('assets_belle/css/bootstrap.min.css') }}">
+            <!-- Main Style CSS -->
+            <link rel="stylesheet" href="{{ asset('assets_belle/css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets_belle/css/responsive.css') }}">
         @livewireStyles
 
         <!-- Scripts -->

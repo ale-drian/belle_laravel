@@ -67,11 +67,11 @@
                                 <form name="frm-login" method="POST" action="{{ route('login') }}">
                                     @csrf
 									<fieldset class="wrap-title">
-										<h3 class="form-title">Log in to your account</h3>										
+										<h3 class="form-title">Iniciar Sesión</h3>										
 									</fieldset>
 									<fieldset class="wrap-input">
-										<label for="frm-login-uname">Email Address:</label>
-										<input type="email" id="frm-login-uname" name="email" placeholder="Type your email address" :value="old('email')" required autofocus>
+										<label for="frm-login-uname">Email:</label>
+										<input type="email" id="frm-login-uname" name="email" placeholder="Escriba su email" :value="old('email')" required autofocus>
 									</fieldset>
 									<fieldset class="wrap-input">
 										<label for="frm-login-pass">Password:</label>
@@ -80,9 +80,9 @@
 									
 									<fieldset class="wrap-input">
 										<label class="remember-field">
-											<input class="frm-input " name="remember" id="rememberme" value="forever" type="checkbox"><span>Remember me</span>
+											<input class="frm-input " name="remember" id="rememberme" value="forever" type="checkbox"><span>Recordar</span>
 										</label>
-										<a class="link-function left-position" href="{{ route('password.request') }}" title="Forgotten password?">Forgotten password?</a>
+										<a class="link-function left-position" href="{{ route('password.request') }}" title="Forgotten password?">¿Olvidaste tu contraseña?</a>
 									</fieldset>
 									<input type="submit" class="btn btn-submit" value="Login" name="submit">
 								</form>

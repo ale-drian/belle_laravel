@@ -1,28 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset(mix('css/app.css')) }}">
-
-        <!-- Scripts -->
-        <script src="{{ asset(mix('js/app.js')) }}" defer></script>
-    </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
-        </div>
-    </body>
-</html> --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,10 +12,22 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/flexslider.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
-    @livewireStyles
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{{ asset('assets_belle/images/favicon.png') }}" />
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" href="{{ asset('assets_belle/css/plugins.css') }}">
+	<!-- Bootstap CSS -->
+	<link rel="stylesheet" href="{{ asset('assets_belle/css/bootstrap.min.css') }}">
+	<!-- Main Style CSS -->
+	<link rel="stylesheet" href="{{ asset('assets_belle/css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets_belle/css/responsive.css') }}">
+
+	@livewireStyles	
 </head>
 <body class="home-page home-01 ">
 
@@ -55,178 +42,118 @@
 	<!--header-->
 	<header id="header" class="header header-style-1">
 		<div class="container-fluid">
-			<div class="row">
-				<div class="topbar-menu-area">
-					<div class="container">
-						<div class="topbar-menu left-menu">
-							<ul>
-								<li class="menu-item" >
-									<a title="Hotline: (+123) 456 789" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
-								</li>
-							</ul>
-						</div>
-						<div class="topbar-menu right-menu">
-							<ul>								
-								<li class="menu-item lang-menu menu-item-has-children parent">
-									<a title="English" href="#"><span class="img label-before"><img src="{{ asset('assets/images/lang-en.png') }}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-									<ul class="submenu lang" >
-										<li class="menu-item" ><a title="hungary" href="#"><span class="img label-before"><img src="{{ asset('assets/images/lang-hun.png') }}" alt="lang-hun"></span>Hungary</a></li>
-										<li class="menu-item" ><a title="german" href="#"><span class="img label-before"><img src="{{ asset('assets/images/lang-ger.png') }}" alt="lang-ger" ></span>German</a></li>
-										<li class="menu-item" ><a title="french" href="#"><span class="img label-before"><img src="{{ asset('assets/images/lang-fra.png') }}" alt="lang-fre"></span>French</a></li>
-										<li class="menu-item" ><a title="canada" href="#"><span class="img label-before"><img src="{{ asset('assets/images/lang-can.png') }}" alt="lang-can"></span>Canada</a></li>
-									</ul>
-								</li>
-								
-								@if(Route::has('login'))
-									@auth
-									@if(Auth::user()->utype === 'ADM')
-										<li class="menu-item menu-item-has-children parent" >
-											<a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-											<ul class="submenu curency" >
-												<li class="menu-item" >
-													<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
-												</li>
-												<li class="menu-item" >
-													<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-												</li>
-												<form id="logout-form" method="POST" action="{{ route('logout') }}">
-													@csrf													
-												</form>
-											</ul>
-										</li>
-									@else
-										<li class="menu-item menu-item-has-children parent" >
-											<a title="My Account" href="#">My Account ({{ Auth::user()->name }})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-											<ul class="submenu curency" >
-												<li class="menu-item" >
-													<a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
-												</li>
-												<li class="menu-item" >
-													<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-												</li>
-												<form id="logout-form" method="POST" action="{{ route('logout') }}">
-													@csrf													
-												</form>
-											</ul>
-										</li>
-									@endif
-									@else
-										<li class="menu-item" ><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
-										<li class="menu-item" ><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
-									@endif
-								@endif
-							</ul>
-						</div>
-					</div>
-				</div>
+			<div class="">
 
 				<div class="container">
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="{{ url('/') }}" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+							<a href="{{ url('/') }}" class="link-to-home"><img src="{{ asset('assets_belle/images/logo.svg') }}" alt="mercado"></a>
 						</div>
-
-						<div class="wrap-search center-section">
-							<div class="wrap-search-form">
-								<form action="#" id="form-search-top" name="form-search-top">
-									<input type="text" name="search" value="" placeholder="Search here...">
-									<button form="form-search-top" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-									<div class="wrap-list-cate">
-										<input type="hidden" name="product-cate" value="0" id="product-cate">
-										<a href="#" class="link-control">All Category</a>
-										<ul class="list-cate">
-											<li class="level-0">All Category</li>
-											<li class="level-1">-Electronics</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Headphone & Headsets</li>
-											<li class="level-2">Mp3 Player & Acessories</li>
-											<li class="level-1">-Smartphone & Table</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Mp3 Player & Headphones</li>
-											<li class="level-2">Table & Accessories</li>
-											<li class="level-1">-Electronics</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Headphone & Headsets</li>
-											<li class="level-2">Mp3 Player & Acessories</li>
-											<li class="level-1">-Smartphone & Table</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Mp3 Player & Headphones</li>
-											<li class="level-2">Table & Accessories</li>
-										</ul>
-									</div>
-								</form>
-							</div>
-						</div>
+						
+						@livewire('header-search-component')
 
 						<div class="wrap-icon right-section">
-							<div class="wrap-icon-section wishlist">
-								<a href="#" class="link-direction">
-									<i class="fa fa-heart" aria-hidden="true"></i>
-									<div class="left-info">
-										<span class="index">0 item</span>
-										<span class="title">Wishlist</span>
-									</div>
+							
+							<div class="wrap-icon-section" style="width: 20%; margin-right: 45px;">
+								<div class="site-cart">
+								<a href="#" class="site-header__cart" title="Cart">
+									<i class="icon anm anm-bag-l"></i>
+									<span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
 								</a>
+								</div>
 							</div>
-							<div class="wrap-icon-section minicart">
-								<a href="#" class="link-direction">
-									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-									<div class="left-info">
-										<span class="index">4 items</span>
-										<span class="title">CART</span>
-									</div>
-								</a>
-							</div>
-							<div class="wrap-icon-section show-up-after-1024">
-								<a href="#" class="mobile-navigation">
-									<span></span>
-									<span></span>
-									<span></span>
-								</a>
-							</div>
+							@if(Auth::user())
+								<div class="wrap-icon-section topbar-menu right-menu" style="width: 60%;">
+									<a title="My Account" href="#">{{ Auth::user()->name }}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+									<ul class="submenu curency" >
+										<li class="menu-item" >
+											<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
+										</li>
+										<form id="logout-form" method="POST" action="{{ route('logout') }}">
+											@csrf													
+										</form>
+									</ul>
+								</div>
+							@else
+								<div class="wrap-icon-section" style="width: 30%;">
+									<a href="{{ route('login') }}" class="link-direction btn">Login</a>
+								</div>
+								<div class="wrap-icon-section" style="width: 30%;">
+									<a href="{{ route('register') }}" class="link-direction btn">Registrarse</a>
+								</div>
+							@endif
+
 						</div>
 
 					</div>
 				</div>
 
 				<div class="nav-section header-sticky">
-					<div class="header-nav-section">
-						<div class="container">
-							<ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info" >
-								<li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
-								<li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
-								<li class="menu-item"><a href="#" class="link-term">Top new items</a><span class="nav-label hot-label">hot</span></li>
-								<li class="menu-item"><a href="#" class="link-term">Top Selling</a><span class="nav-label hot-label">hot</span></li>
-								<li class="menu-item"><a href="#" class="link-term">Top rated items</a><span class="nav-label hot-label">hot</span></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="primary-nav-section">
-						<div class="container">
-							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
-								<li class="menu-item home-icon">
-									<a href="{{ url('/') }}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
-								</li>
-								<li class="menu-item">
-									<a href="{{ url('/about-us') }}" class="link-term mercado-item-title">About Us</a>
-								</li>
-								<li class="menu-item">
-									<a href="{{ url('/shop') }}" class="link-term mercado-item-title">Shop</a>
-								</li>
-								<li class="menu-item">
-									<a href="{{ url('/cart') }}" class="link-term mercado-item-title">Cart</a>
-								</li>
-								<li class="menu-item">
-									<a href="{{ url('/checkout') }}" class="link-term mercado-item-title">Checkout</a>
-								</li>
-								<li class="menu-item">
-									<a href="{{ url('/contact-us') }}" class="link-term mercado-item-title">Contact Us</a>
-								</li>																	
-							</ul>
-						</div>
-					</div>
+					    <!--Header-->
+    <div class="header-wrap animated d-flex border-bottom">
+    	<div class="container-fluid">        
+            <div class="row align-items-center">
+                <div class="col-2 col-sm-3 col-md-3 col-lg-8">
+                	<div class="d-block d-lg-none">
+                        <button type="button" class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open">
+                        	<i class="icon anm anm-times-l"></i>
+                            <i class="anm anm-bars-r"></i>
+                        </button>
+                    </div>
+                	<!--Desktop Menu-->
+                	<nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
+                        <ul id="siteNav" class="site-nav medium center hidearrow">
+                            <li class="lvl1 parent megamenu"><a href="{{ url('/') }}">Inicio<i class="anm anm-angle-down-l"></i></a></li>
+                            <li class="lvl1 parent megamenu"><a href="#">Categorias <i class="anm anm-angle-down-l"></i></a>
+                            	<div class="megamenu style4">
+                                    <ul class="grid grid--uniform mmWrapper">
+                                    	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Prendas de vestir</a>
+                                            <ul class="subLinks">
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Polos</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Blusas</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Vestidos</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Faldas</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Pantalones</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Zapatos</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Todo</a></li>
+                                            </ul>
+                                      	</li>
+                                      	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Otros Productos</a>
+                                            <ul class="subLinks">
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Monturas/Gafas <span class="lbl nm_label3">Hot</span></a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Carteras</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Joyeria</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Accesorios</a></li>
+                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Audifonos <span class="lbl nm_label1">New</span></a></li>
+                                            </ul>
+                                      	</li>
+                                        <li class="grid__item lvl-1 col-md-6 col-lg-6">
+                                        	<a href="#"><img src="assets/images/megamenu-bg1.jpg" alt="" title="" /></a>
+                                        </li>
+                                    </ul>
+                              	</div>
+                            </li>
+                        <li class="lvl1 parent megamenu"><a href="#">Vender <i class="anm anm-angle-down-l"></i></a></li>
+                        <li class="lvl1"><a href="#"><b>Contactanos</b> <i class="anm anm-angle-down-l"></i></a></li>
+                        <li class="lvl1"><a href="#"><b>Acerca de Nosotros</b> <i class="anm anm-angle-down-l"></i></a></li>
+                      </ul>
+                    </nav>
+                    <!--End Desktop Menu-->
+                </div>
+                <!--Mobile Logo-->
+                <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
+                	<div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo.svg" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                        </a>
+                    </div>
+                </div>
+                
+        	</div>
+        </div>
+    </div>
+    <!--End Header-->
 				</div>
 			</div>
 		</div>
@@ -234,251 +161,57 @@
     
     {{ $slot }}
 
-	<footer id="footer">
-		<div class="wrap-footer-content footer-style-1">
-
-			<div class="wrap-function-info">
-				<div class="container">
-					<ul>
-						<li class="fc-info-item">
-							<i class="fa fa-truck" aria-hidden="true"></i>
-							<div class="wrap-left-info">
-								<h4 class="fc-name">Free Shipping</h4>
-								<p class="fc-desc">Free On Oder Over $99</p>
-							</div>
-
-						</li>
-						<li class="fc-info-item">
-							<i class="fa fa-recycle" aria-hidden="true"></i>
-							<div class="wrap-left-info">
-								<h4 class="fc-name">Guarantee</h4>
-								<p class="fc-desc">30 Days Money Back</p>
-							</div>
-
-						</li>
-						<li class="fc-info-item">
-							<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-							<div class="wrap-left-info">
-								<h4 class="fc-name">Safe Payment</h4>
-								<p class="fc-desc">Safe your online payment</p>
-							</div>
-
-						</li>
-						<li class="fc-info-item">
-							<i class="fa fa-life-ring" aria-hidden="true"></i>
-							<div class="wrap-left-info">
-								<h4 class="fc-name">Online Suport</h4>
-								<p class="fc-desc">We Have Support 24/7</p>
-							</div>
-
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!--End function info-->
-
-			<div class="main-footer-content">
-
-				<div class="container">
-
-					<div class="row">
-
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-							<div class="wrap-footer-item">
-								<h3 class="item-header">Contact Details</h3>
-								<div class="item-content">
-									<div class="wrap-contact-detail">
-										<ul>
-											<li>
-												<i class="fa fa-map-marker" aria-hidden="true"></i>
-												<p class="contact-txt">45 Grand Central Terminal New York,NY 1017 United State USA</p>
-											</li>
-											<li>
-												<i class="fa fa-phone" aria-hidden="true"></i>
-												<p class="contact-txt">(+123) 456 789 - (+123) 666 888</p>
-											</li>
-											<li>
-												<i class="fa fa-envelope" aria-hidden="true"></i>
-												<p class="contact-txt">Contact@yourcompany.com</p>
-											</li>											
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-
-							<div class="wrap-footer-item">
-								<h3 class="item-header">Hot Line</h3>
-								<div class="item-content">
-									<div class="wrap-hotline-footer">
-										<span class="desc">Call Us toll Free</span>
-										<b class="phone-number">(+123) 456 789 - (+123) 666 888</b>
-									</div>
-								</div>
-							</div>
-
-							<div class="wrap-footer-item footer-item-second">
-								<h3 class="item-header">Sign up for newsletter</h3>
-								<div class="item-content">
-									<div class="wrap-newletter-footer">
-										<form action="#" class="frm-newletter" id="frm-newletter">
-											<input type="email" class="input-email" name="email" value="" placeholder="Enter your email address">
-											<button class="btn-submit">Subscribe</button>
-										</form>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 box-twin-content ">
-							<div class="row">
-								<div class="wrap-footer-item twin-item">
-									<h3 class="item-header">My Account</h3>
-									<div class="item-content">
-										<div class="wrap-vertical-nav">
-											<ul>
-												<li class="menu-item"><a href="#" class="link-term">My Account</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Brands</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Gift Certificates</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="wrap-footer-item twin-item">
-									<h3 class="item-header">Infomation</h3>
-									<div class="item-content">
-										<div class="wrap-vertical-nav">
-											<ul>
-												<li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Returns</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Specials</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Order History</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="row">
-
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-							<div class="wrap-footer-item">
-								<h3 class="item-header">We Using Safe Payments:</h3>
-								<div class="item-content">
-									<div class="wrap-list-item wrap-gallery">
-										<img src="{{ asset('assets/images/payment.png') }}" style="max-width: 260px;">
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-							<div class="wrap-footer-item">
-								<h3 class="item-header">Social network</h3>
-								<div class="item-content">
-									<div class="wrap-list-item social-network">
-										<ul>
-											<li><a href="#" class="link-to-item" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-											<li><a href="#" class="link-to-item" title="vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-							<div class="wrap-footer-item">
-								<h3 class="item-header">Dowload App</h3>
-								<div class="item-content">
-									<div class="wrap-list-item apps-list">
-										<ul>
-											<li><a href="#" class="link-to-item" title="our application on apple store"><figure><img src="{{ asset('assets/images/brands/apple-store.png') }}" alt="apple store" width="128" height="36"></figure></a></li>
-											<li><a href="#" class="link-to-item" title="our application on google play store"><figure><img src="{{ asset('assets/images/brands/google-play-store.png') }}" alt="google play store" width="128" height="36"></figure></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-				<div class="wrap-back-link">
-					<div class="container">
-						<div class="back-link-box">
-							<h3 class="backlink-title">Quick Links</h3>
-							<div class="back-link-row">
-								<ul class="list-back-link" >
-									<li><span class="row-title">Mobiles:</span></li>
-									<li><a href="#" class="redirect-back-link" title="mobile">Mobiles</a></li>
-									<li><a href="#" class="redirect-back-link" title="yphones">YPhones</a></li>
-									<li><a href="#" class="redirect-back-link" title="Gianee Mobiles GL">Gianee Mobiles GL</a></li>
-									<li><a href="#" class="redirect-back-link" title="Mobiles Karbonn">Mobiles Karbonn</a></li>
-									<li><a href="#" class="redirect-back-link" title="Mobiles Viva">Mobiles Viva</a></li>
-									<li><a href="#" class="redirect-back-link" title="Mobiles Intex">Mobiles Intex</a></li>
-									<li><a href="#" class="redirect-back-link" title="Mobiles Micrumex">Mobiles Micrumex</a></li>
-									<li><a href="#" class="redirect-back-link" title="Mobiles Bsus">Mobiles Bsus</a></li>
-									<li><a href="#" class="redirect-back-link" title="Mobiles Samsyng">Mobiles Samsyng</a></li>
-									<li><a href="#" class="redirect-back-link" title="Mobiles Lenova">Mobiles Lenova</a></li>
-								</ul>
-
-								<ul class="list-back-link" >
-									<li><span class="row-title">Tablets:</span></li>
-									<li><a href="#" class="redirect-back-link" title="Plesc YPads">Plesc YPads</a></li>
-									<li><a href="#" class="redirect-back-link" title="Samsyng Tablets" >Samsyng Tablets</a></li>
-									<li><a href="#" class="redirect-back-link" title="Qindows Tablets" >Qindows Tablets</a></li>
-									<li><a href="#" class="redirect-back-link" title="Calling Tablets" >Calling Tablets</a></li>
-									<li><a href="#" class="redirect-back-link" title="Micrumex Tablets" >Micrumex Tablets</a></li>
-									<li><a href="#" class="redirect-back-link" title="Lenova Tablets Bsus" >Lenova Tablets Bsus</a></li>
-									<li><a href="#" class="redirect-back-link" title="Tablets iBall" >Tablets iBall</a></li>
-									<li><a href="#" class="redirect-back-link" title="Tablets Swipe" >Tablets Swipe</a></li>
-									<li><a href="#" class="redirect-back-link" title="Tablets TVs, Audio" >Tablets TVs, Audio</a></li>
-								</ul>
-
-								<ul class="list-back-link" >
-									<li><span class="row-title">Fashion:</span></li>
-									<li><a href="#" class="redirect-back-link" title="Sarees Silk" >Sarees Silk</a></li>
-									<li><a href="#" class="redirect-back-link" title="sarees Salwar" >sarees Salwar</a></li>
-									<li><a href="#" class="redirect-back-link" title="Suits Lehengas" >Suits Lehengas</a></li>
-									<li><a href="#" class="redirect-back-link" title="Biba Jewellery" >Biba Jewellery</a></li>
-									<li><a href="#" class="redirect-back-link" title="Rings Earrings" >Rings Earrings</a></li>
-									<li><a href="#" class="redirect-back-link" title="Diamond Rings" >Diamond Rings</a></li>
-									<li><a href="#" class="redirect-back-link" title="Loose Diamond Shoes" >Loose Diamond Shoes</a></li>
-									<li><a href="#" class="redirect-back-link" title="BootsMen Watches" >BootsMen Watches</a></li>
-									<li><a href="#" class="redirect-back-link" title="Women Watches" >Women Watches</a></li>
-								</ul>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
+	<footer id="footer" class="footer-2">
+        <div class="newsletter-section">
+            <div class="container">
+                <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7 w-100 d-flex justify-content-start align-items-center">
+                            <div class="display-table">
+                                <div class="display-table-cell footer-newsletter">
+                                    <div class="section-header text-center">
+                                        <label class="h2"><span>Subscribete para</span>Recibir novedades</label>
+                                    </div>
+                                    <form action="#" method="post">
+                                        <div class="input-group">
+                                            <input type="email" class="input-group__field newsletter__input" name="EMAIL" value="" placeholder="Correo Electronico" required="">
+                                            <span class="input-group__btn">
+                                                <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe"><span class="newsletter__submit-text--large">Subscribir</span></button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-5 d-flex justify-content-end align-items-center">
+                            <div class="footer-social">
+                                <ul class="list--inline site-footer__social-icons social-icons">
+                                    <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Facebook"><i class="icon icon-facebook"></i></a></li>
+                                    <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Twitter"><i class="icon icon-twitter"></i> <span class="icon__fallback-text">Twitter</span></a></li>
+                                    <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Pinterest"><i class="icon icon-pinterest"></i> <span class="icon__fallback-text">Pinterest</span></a></li>
+                                    <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Instagram"><i class="icon icon-instagram"></i> <span class="icon__fallback-text">Instagram</span></a></li>
+                                    <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Tumblr"><i class="icon icon-tumblr-alt"></i> <span class="icon__fallback-text">Tumblr</span></a></li>
+                                    <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on YouTube"><i class="icon icon-youtube"></i> <span class="icon__fallback-text">YouTube</span></a></li>
+                                    <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Vimeo"><i class="icon icon-vimeo-alt"></i> <span class="icon__fallback-text">Vimeo</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </div>    
+        </div>
+    </footer>
 
 			<div class="coppy-right-box">
 				<div class="container">
 					<div class="coppy-right-item item-left">
-						<p class="coppy-right-text">Copyright © 2021 FernandoCalmet. All rights reserved</p>
+						<p class="coppy-right-text">Copyright © 2021 Tecsup</p>
 					</div>
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
 							<ul>
-								<li class="menu-item"><a href="{{ url('/about-us') }}" class="link-term">About us</a></li>								
-								<li class="menu-item"><a href="{{ url('/privacy-policy') }}" class="link-term">Privacy Policy</a></li>
-								<li class="menu-item"><a href="{{ url('/terms-conditions') }}" class="link-term">Terms & Conditions</a></li>
-								<li class="menu-item"><a href="{{ url('/return-policy') }}" class="link-term">Return Policy</a></li>								
+								<li class="menu-item"><a href="{{ url('/about-us') }}" class="link-term">Nosotros</a></li>								
+								<li class="menu-item"><a href="{{ url('/privacy-policy') }}" class="link-term">Politica de Privacidad</a></li>
+								<li class="menu-item"><a href="{{ url('/terms-conditions') }}" class="link-term">Terminos y Condiciones</a></li>
+								<li class="menu-item"><a href="{{ url('/return-policy') }}" class="link-term">Politica de Devolución</a></li>								
 							</ul>
 						</div>
 					</div>
@@ -492,11 +225,23 @@
 	<script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.flexslider.js') }}"></script>
-	<script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
+	{{-- <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script> --}}
 	<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
 	<script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('assets/js/functions.js') }}"></script>
-    @livewireStyles
+
+	@livewireScripts
+
+	<script src="{{ asset('assets_belle/js/vendor/jquery-3.3.1.min.js') }}"></script>
+	<script src="{{ asset('assets_belle/js/vendor/modernizr-3.6.0.min.js') }}"></script>
+	<script src="{{ asset('assets_belle/js/vendor/jquery.cookie.js') }}"></script>
+	<script src="{{ asset('assets_belle/js/vendor/wow.min.js') }}"></script>
+	<!-- Including Javascript -->
+	<script src="{{ asset('assets_belle/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('assets_belle/js/plugins.js') }}"></script>
+	<script src="{{ asset('assets_belle/js/popper.min.js') }}"></script>
+	<script src="{{ asset('assets_belle/js/lazysizes.js') }}"></script>
+	<script src="{{ asset('assets_belle/js/main.js') }}"></script>
 </body>
 </html>
