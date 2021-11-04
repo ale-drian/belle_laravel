@@ -116,87 +116,46 @@
         </div>
 
         <div class="our-team-info">
-            <h4 class="title-box">Our teams</h4>
+            <h4 class="title-box">NUESTRO EQUIPO</h4>
             <div class="our-staff">
                 <div class="slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false"
                     data-nav="true" data-dots="false" data-margin="30"
-                    data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"4"}}'>
+                    data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"3"}}'>
 
                     <div class="team-member equal-elem">
                         <div class="media">
-                            <a href="#" title="LEONA">
-                                <figure><img src="{{ asset('assets/images/member-leona.jpg') }}" alt="LEONA"></figure>
+                            <a href="#" title="ALEJANDRA">
+                                <figure><img src="{{ asset('assets/images/avalej.png') }}" alt="ALEJANDRA"></figure>
                             </a>
                         </div>
                         <div class="info">
-                            <b class="name">leona</b>
-                            <span class="title">Director</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">ALEJANDRA ADRIAN</b>
+                            <span class="title">CEO</span>
+                            <p class="desc">Chief Executive Officer o Director Ejecutivo</p>
                         </div>
                     </div>
-
                     <div class="team-member equal-elem">
                         <div class="media">
-                            <a href="#" title="LUCIA">
-                                <figure><img src="{{ asset('assets/images/member-lucia.jpg') }}" alt="LUCIA"></figure>
+                            <a href="#" title="MARIAM">
+                                <figure><img src="{{ asset('assets/images/avmariam.png') }}" alt="MARIAM"></figure>
                             </a>
                         </div>
                         <div class="info">
-                            <b class="name">LUCIA</b>
-                            <span class="title">Manager</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">MARIAM APAZA</b>
+                            <span class="title">CTO</span>
+                            <p class="desc">Chief Technology Officer o Director de Tecnología.</p>
                         </div>
                     </div>
-
                     <div class="team-member equal-elem">
                         <div class="media">
-                            <a href="#" title="NANA">
-                                <figure><img src="{{ asset('assets/images/member-nana.jpg') }}" alt="NANA"></figure>
+                            <a href="#" title="JOSEPH">
+                                <figure><img src="{{ asset('assets/images/avjosep.png') }}" alt="JOSEPH"></figure>
                             </a>
                         </div>
                         <div class="info">
-                            <b class="name">NANA</b>
-                            <span class="title">Marketer</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
-                        </div>
-                    </div>
-
-                    <div class="team-member equal-elem">
-                        <div class="media">
-                            <a href="#" title="BRAUM">
-                                <figure><img src="{{ asset('assets/images/member-braum.jpg') }}" alt="BRAUM"></figure>
-                            </a>
-                        </div>
-                        <div class="info">
-                            <b class="name">BRAUM</b>
-                            <span class="title">Member</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
-                        </div>
-                    </div>
-
-                    <div class="team-member equal-elem">
-                        <div class="media">
-                            <a href="#" title="LUCIA">
-                                <figure><img src="{{ asset('assets/images/member-lucia.jpg') }}" alt="LUCIA"></figure>
-                            </a>
-                        </div>
-                        <div class="info">
-                            <b class="name">LUCIA</b>
-                            <span class="title">Manager</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
-                        </div>
-                    </div>
-
-                    <div class="team-member equal-elem">
-                        <div class="media">
-                            <a href="#" title="NANA">
-                                <figure><img src="{{ asset('assets/images/member-nana.jpg') }}" alt="NANA"></figure>
-                            </a>
-                        </div>
-                        <div class="info">
-                            <b class="name">NANA</b>
-                            <span class="title">Marketer</span>
-                            <p class="desc">Contrary to popular belief, Lorem Ipsum is not simply random text...</p>
+                            <b class="name">JOSEPH CARITA</b>
+                            <span class="title">CIO</span>
+                            <p class="desc">Chief Information Officer o Director de TI.</p>
                         </div>
                     </div>
 
