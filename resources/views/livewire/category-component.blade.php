@@ -9,28 +9,19 @@
                     <div class="widget-title"><h2>Categorias</h2></div>
                     <div class="widget-content">
                         <ul class="sidebar_categories">
-                            <li class="level1 sub-level"><a href="#;" class="site-nav">Prendas de Vestir</a>
-                                <ul class="sublinks">
-                                    <li class="level2"><a href="#;" class="site-nav">Mujer</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Hombre</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Niña</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Niño</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Bebe</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Ver todas las prendas</a></li>
-                                </ul>
+                            @foreach ($categories as $category)
+                            <li class="{{ count($category->sub_category)>0 ?'level1 sub-level':'level1'}}">
+                                <a href="#;" class="site-nav active">{{ $category->name }}</a>
+                                @if (count($category->sub_category)>0)
+                                    <ul class="sublinks" style="display:block;">
+                                        @foreach ($category->sub_category as $sub_category)
+                                            <li class="level2"><a href="#;" class="site-nav">{{ $sub_category->name }}</a></li>
+                                        @endforeach
+                                        <li class="level2"><a href="#;" class="site-nav">Ver todo</a></li>
+                                    </ul>
+                                @endif
                             </li>
-                            <li class="level1 sub-level"><a href="#;" class="site-nav">Joyeria</a>
-                                <ul class="sublinks">
-                                    <li class="level2"><a href="#;" class="site-nav">Anillos</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Collares</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Aretes</a></li>
-                                    <li class="level2"><a href="#;" class="site-nav">Ver toda la joyeria</a></li>
-                                </ul>
-                            </li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Zapatos</a></li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Carteras</a></li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Acesorios</a></li>
-                            <li class="lvl-1"><a href="#;" class="site-nav">Otros</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

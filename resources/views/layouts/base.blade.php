@@ -106,8 +106,9 @@
                             <li class="lvl1 parent megamenu"><a href="{{ url('/category') }}">Categorias <i class="anm anm-angle-down-l"></i></a>
                             	<div class="megamenu style4">
                                     <ul class="grid grid--uniform mmWrapper">
-                                    	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Prendas de vestir</a>
+                                    	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Categorias</a>
                                             <ul class="subLinks">
+                                                
                                                 <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Polos</a></li>
                                                 <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Blusas</a></li>
                                                 <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Vestidos</a></li>

@@ -14,8 +14,17 @@ class CategoryComponent extends Component
 
     public function render()
     {
-        $product = Product::all();
-        return view('livewire.category-component')->layout('layouts.base');
+        $categories = Category::whereNull("category_idcategory")->get();
+        foreach($categories as $category){
+            $sub_category = Category::where("category_idcategory", '=', $category->id )->get();
+            $category->sub_category = $sub_category;
+        }
+        // dd($categories);
+        $products = Product::all();
+        return view('livewire.category-component', [
+            'products' => $products,
+            'categories' => $categories
+        ])->layout('layouts.base');
     }
 
 
