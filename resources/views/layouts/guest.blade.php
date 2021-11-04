@@ -102,43 +102,8 @@
                         </button>
                     </div>
                 	<!--Desktop Menu-->
-                	<nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
-                        <ul id="siteNav" class="site-nav medium center hidearrow">
-                            <li class="lvl1 parent megamenu"><a href="{{ url('/') }}">Inicio<i class="anm anm-angle-down-l"></i></a></li>
-                            <li class="lvl1 parent megamenu"><a href="#">Categorias <i class="anm anm-angle-down-l"></i></a>
-                            	<div class="megamenu style4">
-                                    <ul class="grid grid--uniform mmWrapper">
-                                    	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Prendas de vestir</a>
-                                            <ul class="subLinks">
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Polos</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Blusas</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Vestidos</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Faldas</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Pantalones</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Zapatos</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Todo</a></li>
-                                            </ul>
-                                      	</li>
-                                      	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Otros Productos</a>
-                                            <ul class="subLinks">
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Monturas/Gafas <span class="lbl nm_label3">Hot</span></a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Carteras</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Joyeria</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Accesorios</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Audifonos <span class="lbl nm_label1">New</span></a></li>
-                                            </ul>
-                                      	</li>
-                                        <li class="grid__item lvl-1 col-md-6 col-lg-6">
-                                        	<a href="#"><img src="assets/images/megamenu-bg1.jpg" alt="" title="" /></a>
-                                        </li>
-                                    </ul>
-                              	</div>
-                            </li>
-                        <li class="lvl1 parent megamenu"><a href="#">Vender <i class="anm anm-angle-down-l"></i></a></li>
-                        <li class="lvl1"><a href="#"><b>Contactanos</b> <i class="anm anm-angle-down-l"></i></a></li>
-                        <li class="lvl1"><a href="#"><b>Acerca de Nosotros</b> <i class="anm anm-angle-down-l"></i></a></li>
-                      </ul>
-                    </nav>
+                	
+						@livewire('header-menu-component')
                     <!--End Desktop Menu-->
                 </div>
                 <!--Mobile Logo-->

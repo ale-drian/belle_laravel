@@ -92,53 +92,14 @@
     <div class="header-wrap animated d-flex border-bottom">
     	<div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-2 col-sm-3 col-md-3 col-lg-8">
+                <div class="col-2 col-sm-3 col-md-3 col-lg-8 offset-lg-2">
                 	<div class="d-block d-lg-none">
                         <button type="button" class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open">
                         	<i class="icon anm anm-times-l"></i>
                             <i class="anm anm-bars-r"></i>
                         </button>
                     </div>
-                	<!--Desktop Menu-->
-                	<nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
-                        <ul id="siteNav" class="site-nav medium center hidearrow">
-                            <li class="lvl1 parent megamenu"><a href="{{ url('/') }}">Inicio<i class="anm anm-angle-down-l"></i></a></li>
-                            <li class="lvl1 parent megamenu"><a href="{{ url('/category') }}">Categorias <i class="anm anm-angle-down-l"></i></a>
-                            	<div class="megamenu style4">
-                                    <ul class="grid grid--uniform mmWrapper">
-                                    	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Categorias</a>
-                                            <ul class="subLinks">
-                                                
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Polos</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Blusas</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Vestidos</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Faldas</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Pantalones</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Zapatos</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Todo</a></li>
-                                            </ul>
-                                      	</li>
-                                      	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Otros Productos</a>
-                                            <ul class="subLinks">
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Monturas/Gafas <span class="lbl nm_label3">Hot</span></a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Carteras</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Joyeria</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Accesorios</a></li>
-                                                <li class="lvl-2"><a href="categorias.html" class="site-nav lvl-2">Audifonos <span class="lbl nm_label1">New</span></a></li>
-                                            </ul>
-                                      	</li>
-                                        <li class="grid__item lvl-1 col-md-6 col-lg-6">
-                                        	<a href="#"><img src="assets/images/megamenu-bg1.jpg" alt="" title="" /></a>
-                                        </li>
-                                    </ul>
-                              	</div>
-                            </li>
-                            <li class="lvl1 parent megamenu"><a href="{{ url('/sell') }}">Vender <i class="anm anm-angle-down-l"></i></a></li>
-                        <li class="lvl1"><a href="{{ url('/contact-us') }}"><b>Contactanos</b> <i class="anm anm-angle-down-l"></i></a></li>
-                        <li class="lvl1"><a href="#"><b>Acerca de Nosotros</b> <i class="anm anm-angle-down-l"></i></a></li>
-                      </ul>
-                    </nav>
-                    <!--End Desktop Menu-->
+                    @livewire('header-menu-component')
                 </div>
                 <!--Mobile Logo-->
                 <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
