@@ -20,6 +20,6 @@
         </li>
         <li class="lvl1 parent megamenu"><a href="{{ url('/sell') }}">Vender <i class="anm anm-angle-down-l"></i></a></li>
     <li class="lvl1"><a href="{{ url('/contact-us') }}"><b>Contactanos</b> <i class="anm anm-angle-down-l"></i></a></li>
-    <li class="lvl1"><a href="#"><b>Acerca de Nosotros</b> <i class="anm anm-angle-down-l"></i></a></li>
+    <li class="lvl1"><a href="{{ url('/about-us') }}"><b>Acerca de Nosotros</b> <i class="anm anm-angle-down-l"></i></a></li>
     </ul>
 </nav>
