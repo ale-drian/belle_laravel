@@ -12,7 +12,8 @@ class Category extends Model
     protected $fillable = [
         'name',
         'description',
-        'image'
+        'image',
+        'category_idcategory'
     ];
 
     public function products(){

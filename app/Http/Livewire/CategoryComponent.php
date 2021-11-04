@@ -15,7 +15,6 @@ class CategoryComponent extends Component
     public function render()
     {
         $product = Product::all();
-
         return view('livewire.category-component')->layout('layouts.base');
     }
 
