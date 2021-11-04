@@ -25,6 +25,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
+        'phone',
+        'address',
+        'image',
         'email',
         'password',
     ];
@@ -58,4 +62,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function products(){
+        return $this->hasMany('App\Models\Product');
+    }
 }

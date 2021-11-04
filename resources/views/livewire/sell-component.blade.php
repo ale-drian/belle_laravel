@@ -26,9 +26,14 @@
                                                        autocorrect="off" autocapitalize="off" autofocus="">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="ProductMark">Marca</label>
-                                                <input type="text" name="product[mark]" placeholder="" id="ProductMark" class=""
-                                                       autocorrect="off" autocapitalize="off" autofocus="">
+                                                <label for="ProductBrand">Marca</label>
+                                                <select name="product[brand]" id="ProductBrand" class="my-1 mr-sm-2">
+                                                    <option selected>Seleccionar</option>
+                                                    @foreach($brands as $brand)
+                                                        <option value="joyeria">{{ $brand->name }}</option>
+                                                    @endforeach
+
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -41,9 +46,10 @@
                                                 <label for="ProductCategory">Categoria</label>
                                                 <select name="product[category]" id="ProductCategory" class="my-1 mr-sm-2">
                                                     <option selected>Seleccionar</option>
-                                                    <option value="joyeria">Joyeria</option>
-                                                    <option value="zapatos">Zapatos</option>
-                                                    <option value="carteras">Carteras</option>
+                                                    @foreach($categories as $category)
+                                                        <option value="joyeria">{{ $category->name }}</option>
+                                                    @endforeach
+
                                                 </select>
                                             </div>
                                         </div>
