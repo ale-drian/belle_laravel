@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>	
+	<title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
-	
+
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{{ asset('assets_belle/images/favicon.png') }}" />
 	<!-- Plugins CSS -->
@@ -27,7 +27,7 @@
 	<link rel="stylesheet" href="{{ asset('assets_belle/css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets_belle/css/responsive.css') }}">
 
-	@livewireStyles	
+	@livewireStyles
 </head>
 <body class="home-page home-01 ">
 
@@ -50,14 +50,14 @@
 						<div class="wrap-logo-top left-section">
 							<a href="{{ url('/') }}" class="link-to-home"><img src="{{ asset('assets_belle/images/logo.svg') }}" alt="mercado"></a>
 						</div>
-						
+
 						@livewire('header-search-component')
 
 						<div class="wrap-icon right-section">
-							
+
 							<div class="wrap-icon-section" style="width: 20%; margin-right: 45px;">
 								<div class="site-cart">
-								<a href="#" class="site-header__cart" title="Cart">
+								<a href="{{ url('/cart') }}" class="site-header__cart" title="Cart">
 									<i class="icon anm anm-bag-l"></i>
 									<span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
 								</a>
@@ -66,11 +66,11 @@
 							@if(Auth::user())
 								<div class="wrap-icon-section topbar-menu right-menu" style="width: 30%;">
 									<a title="My Account" href="#">{{ Auth::user()->name }}</a>
-								</div>	
+								</div>
 								<div class="wrap-icon-section" style="width: 30%;">
 									<a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
 									<form id="logout-form" method="POST" action="{{ route('logout') }}">
-										@csrf													
+										@csrf
 									</form>
 								</div>
 							@else
@@ -90,7 +90,7 @@
 				<div class="nav-section header-sticky">
 					    <!--Header-->
     <div class="header-wrap animated d-flex border-bottom">
-    	<div class="container-fluid">        
+    	<div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-2 col-sm-3 col-md-3 col-lg-8">
                 	<div class="d-block d-lg-none">
@@ -103,7 +103,7 @@
                 	<nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
                         <ul id="siteNav" class="site-nav medium center hidearrow">
                             <li class="lvl1 parent megamenu"><a href="{{ url('/') }}">Inicio<i class="anm anm-angle-down-l"></i></a></li>
-                            <li class="lvl1 parent megamenu"><a href="#">Categorias <i class="anm anm-angle-down-l"></i></a>
+                            <li class="lvl1 parent megamenu"><a href="{{ url('/category') }}">Categorias <i class="anm anm-angle-down-l"></i></a>
                             	<div class="megamenu style4">
                                     <ul class="grid grid--uniform mmWrapper">
                                     	<li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Prendas de vestir</a>
@@ -132,8 +132,8 @@
                                     </ul>
                               	</div>
                             </li>
-                        <li class="lvl1 parent megamenu"><a href="#">Vender <i class="anm anm-angle-down-l"></i></a></li>
-                        <li class="lvl1"><a href="#"><b>Contactanos</b> <i class="anm anm-angle-down-l"></i></a></li>
+                            <li class="lvl1 parent megamenu"><a href="{{ url('/sell') }}">Vender <i class="anm anm-angle-down-l"></i></a></li>
+                        <li class="lvl1"><a href="{{ url('/contact-us') }}"><b>Contactanos</b> <i class="anm anm-angle-down-l"></i></a></li>
                         <li class="lvl1"><a href="#"><b>Acerca de Nosotros</b> <i class="anm anm-angle-down-l"></i></a></li>
                       </ul>
                     </nav>
@@ -147,7 +147,7 @@
                         </a>
                     </div>
                 </div>
-                
+
         	</div>
         </div>
     </div>
@@ -156,11 +156,11 @@
 			</div>
 		</div>
     </header>
-    
+
     {{ $slot }}
 
 	<footer id="footer" class="footer-2">
-        <div class="newsletter-section">
+        <div class="newsletter-section ">
             <div class="container">
                 <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-7 w-100 d-flex justify-content-start align-items-center">
@@ -194,31 +194,28 @@
                             </div>
                         </div>
                     </div>
-            </div>    
+            </div>
         </div>
     </footer>
+    <div class="coppy-right-box">
+        <div class="container">
+            <div class="coppy-right-item item-left">
+                <p class="coppy-right-text">Copyright © 2021 Tecsup</p>
+            </div>
+            <div class="coppy-right-item item-right">
+                <div class="wrap-nav horizontal-nav">
+                    <ul>
+                        <li class="menu-item"><a href="{{ url('/about-us') }}" class="link-term">Nosotros</a></li>
+                        <li class="menu-item"><a href="{{ url('/privacy-policy') }}" class="link-term">Politica de Privacidad</a></li>
+                        <li class="menu-item"><a href="{{ url('/terms-conditions') }}" class="link-term">Terminos y Condiciones</a></li>
+                        <li class="menu-item"><a href="{{ url('/return-policy') }}" class="link-term">Politica de Devolución</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
 
-			<div class="coppy-right-box">
-				<div class="container">
-					<div class="coppy-right-item item-left">
-						<p class="coppy-right-text">Copyright © 2021 Tecsup</p>
-					</div>
-					<div class="coppy-right-item item-right">
-						<div class="wrap-nav horizontal-nav">
-							<ul>
-								<li class="menu-item"><a href="{{ url('/about-us') }}" class="link-term">Nosotros</a></li>								
-								<li class="menu-item"><a href="{{ url('/privacy-policy') }}" class="link-term">Politica de Privacidad</a></li>
-								<li class="menu-item"><a href="{{ url('/terms-conditions') }}" class="link-term">Terminos y Condiciones</a></li>
-								<li class="menu-item"><a href="{{ url('/return-policy') }}" class="link-term">Politica de Devolución</a></li>								
-							</ul>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	
 	<script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

@@ -16,16 +16,16 @@
                             <h2 class="box-title">Leave a Message</h2>
                             <form action="#" method="get" name="frm-contact">
 
-                                <label for="name">Name<span>*</span></label>
+                                <label for="name">Nombre<span>*</span></label>
                                 <input type="text" value="" id="name" name="name">
 
                                 <label for="email">Email<span>*</span></label>
                                 <input type="text" value="" id="email" name="email">
 
-                                <label for="phone">Number Phone</label>
+                                <label for="phone">Numero de telefono</label>
                                 <input type="text" value="" id="phone" name="phone">
 
-                                <label for="comment">Comment</label>
+                                <label for="comment">Mensaje</label>
                                 <textarea name="comment" id="comment"></textarea>
 
                                 <input type="submit" name="ok" value="Submit">
@@ -45,21 +45,21 @@
                                     data-map-height="263">
                                 </div>
                             </div>
-                            <h2 class="box-title">Contact Detail</h2>
+                            <h2 class="box-title">Detalles de contacto</h2>
                             <div class="wrap-icon-box">
 
                                 <div class="icon-box-item">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                     <div class="right-info">
                                         <b>Email</b>
-                                        <p>Support1@Mercado.com</p>
+                                        <p>Support1@gmail.com</p>
                                     </div>
                                 </div>
 
                                 <div class="icon-box-item">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                     <div class="right-info">
-                                        <b>Phone</b>
+                                        <b>Telefono</b>
                                         <p>0123-465-789-111</p>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                 <div class="icon-box-item">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <div class="right-info">
-                                        <b>Mail Office</b>
+                                        <b>Direccion</b>
                                         <p>Sed ut perspiciatis unde omnis<br />Street Name, Los Angeles</p>
                                     </div>
                                 </div>
