@@ -11,6 +11,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\PrivacyPolicyComponent;
 use App\Http\Livewire\ReturnPolicyComponent;
 use App\Http\Livewire\SearchComponent;
+use App\Http\Livewire\SellComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\TermsConditionsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
@@ -34,6 +35,10 @@ Route::get('/', function () {
 */
 
 Route::get('/', HomeComponent::class);
+
+Route::get('/category', CategoryComponent::class);
+
+Route::get('/sell', SellComponent::class)->middleware('auth');
 
 Route::get('/shop', ShopComponent::class);
 
