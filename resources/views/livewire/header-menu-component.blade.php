@@ -7,7 +7,7 @@
                     <li class="grid__item lvl-1 col-md-3 col-lg-3"><a href="#" class="site-nav lvl-1">Categorias</a>
                         <ul class="subLinks">
                             @foreach ($categories as $category)
-                                <li class="lvl-2"><a href="#" class="site-nav lvl-2">{{ $category->name}}</a></li>
+                                <li class="lvl-2"><a href="{{ route('category.name',['category_id' => $category->id ]) }}" class="site-nav lvl-2">{{ $category->name}}</a></li>
                             @endforeach
                             <li class="lvl-2"><a href="#" class="site-nav lvl-2">Todo</a></li>
                         </ul>
