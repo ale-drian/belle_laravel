@@ -12,18 +12,30 @@ class Product extends Model
     protected $fillable = [
         'name',
         'price',
-        'state'
+        'state',
     ];
-    public function user_iduser_seller(){
-        return $this->belongsTo('App\Models\User');
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_iduser_seller');
     }
-    public function category_idcategory(){
-        return $this->belongsTo('App\Models\Category');
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'category_idcategory');
     }
-    public function size_idsize(){
-        return $this->belongsTo('App\Models\Size');
+    public function size()
+    {
+        return $this->belongsTo(Size::class,'size_idsize');
     }
-    public function brand_idbrand(){
-        return $this->belongsTo('App\Models\Brand');
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class,'brand_idbrand');
+    }
+    public function purchase()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
     }
 }

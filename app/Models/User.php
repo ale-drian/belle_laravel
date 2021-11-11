@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use function Symfony\Component\Translation\t;
 
 class User extends Authenticatable
 {
@@ -63,7 +64,16 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function products(){
-        return $this->hasMany('App\Models\Product');
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+    public function commets()
+    {
+        return $this->hasMany(Comments::class);
+    }
+    public function deposits()
+    {
+        return $this->hasMany(Deposit::class);
     }
 }
