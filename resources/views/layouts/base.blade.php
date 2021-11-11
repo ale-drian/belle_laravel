@@ -80,7 +80,7 @@
 									<form id="logout-form" method="POST" action="{{ route('logout') }}">
 										@csrf
 									</form>
-								</div>
+								</div> 
 							@else
 								<div class="wrap-icon-section" style="width: 30%;">
 									<a href="{{ route('login') }}" class="link-direction btn">Login</a>
