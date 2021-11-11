@@ -65,14 +65,22 @@
 							</div>
 							@if(Auth::user())
 								<div class="wrap-icon-section topbar-menu right-menu" style="width: 30%;">
-									<a title="My Account" href="#">{{ Auth::user()->name }}</a>
+								@if(Auth::user()->image == null)
+								<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="{{ Auth::user()->name }}"
+                                 style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
+								@else
+								<img src="{{ Auth::user()->image }}" alt="{{ Auth::user()->name }}"
+                                 style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
+								@endif
+								 	<a title="My Account" href="#">{{ Auth::user()->name }}</a>
+									 
 								</div>
 								<div class="wrap-icon-section" style="width: 30%;">
 									<a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
 									<form id="logout-form" method="POST" action="{{ route('logout') }}">
 										@csrf
 									</form>
-								</div>
+								</div> 
 							@else
 								<div class="wrap-icon-section" style="width: 30%;">
 									<a href="{{ route('login') }}" class="link-direction btn">Login</a>

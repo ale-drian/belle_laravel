@@ -16,6 +16,8 @@ use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\TermsConditionsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,7 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', HomeComponent::class);
+Route::get('/', HomeComponent::class)->name('index');;
 
 Route::get('/category', CategoryComponent::class);
 
@@ -61,6 +63,20 @@ Route::get('/privacy-policy', PrivacyPolicyComponent::class);
 Route::get('/return-policy', ReturnPolicyComponent::class);
 
 Route::get('/terms-conditions', TermsConditionsComponent::class);
+
+//Login Socialite
+
+// Google login
+Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
+
+// Facebook login
+Route::get('login/facebook', [App\Http\Controllers\Auth\LoginController::class, 'redirectToFacebook'])->name('login.facebook');
+Route::get('login/facebook/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleFacebookCallback']);
+
+// Github login
+Route::get('login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
+Route::get('login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
 
 /*
 // Dashboard igual para todos los tipos de usuario

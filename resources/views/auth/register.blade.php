@@ -70,35 +70,78 @@
 					<li class="item-link"><span>Register</span></li>
 				</ul>
 			</div>
-			<div class="row">
-				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">							
+			<div>
+				<div>							
 					<div class=" main-content-area">
 						<div class="wrap-login-item ">
-							<div class="register-form form-item ">
-                                <x-jet-validation-errors class="mb-4" />
-                                <form class="form-stl" action="{{ route('register') }}" name="frm-login" method="POST" >
-                                    @csrf
-									<fieldset class="wrap-title">
-										<h3 class="form-title">Crear una cuenta</h3>
-									</fieldset>									
-									<fieldset class="wrap-input">
+							<div class="register-form form-item form-stl">
+                                <x-jet-validation-errors />
+                                <section class="vh-100" style="background-image:url('https://i.ibb.co/XjbgmVH/bg-login.png')">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img
+                src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/img1.jpg"
+                alt="login form"
+                class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+              />
+              <img
+                src="https://inifdudaipur.com/wp-content/uploads/2020/09/closet-cleaning.jpeg"
+                alt="login form"
+                class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+              />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form action="{{ route('register') }}" name="frm-login" method="POST">
+                @csrf
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; font-size:30px;">Crea una Cuenta</h5>
+                                        
+									<fieldset class="form-outline mb-4">
 										<label for="frm-reg-lname">Nombre*</label>
 										<input type="text" id="frm-reg-lname" name="name" placeholder="Indica tu nombre" :value="name" required autofocus autocomplete="name">
 									</fieldset>
-									<fieldset class="wrap-input">
+									<fieldset class="form-outline mb-4">
 										<label for="frm-reg-email">Email*</label>
 										<input type="email" id="frm-reg-email" name="email" placeholder="Email" :value="email" required>
 									</fieldset>									
-									<fieldset class="wrap-input item-width-in-half left-item ">
+									<fieldset class="form-outline mb-4">
 										<label for="frm-reg-pass">Contraseña *</label>
 										<input type="password" id="frm-reg-pass" name="password" placeholder="******" required autocomplete="new-password">
 									</fieldset>
-									<fieldset class="wrap-input item-width-in-half ">
+									<fieldset class="form-outline mb-4">
 										<label for="frm-reg-cfpass">Confirmar Contraseña *</label>
 										<input type="password" id="frm-reg-cfpass" name="password_confirmation" placeholder="******" required autocomplete="new-password">
 									</fieldset>
-									<input type="submit" class="btn btn-sign" value="Registrarse" name="register">
-								</form>
+									
+
+                  <div class="pt-1 mb-4">
+                    <input style="font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " type="submit" class="btn-dark btn-lg btn-block" value="Registrarse" name="register">
+                  
+                  <hr class="my-4">
+                    <a class="btn-dark btn-lg btn-block" style="background-color: #dd4b39; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;  " href="{{ route('login.google')}}" role="button">
+                      <i class="fa fa-google-plus"></i>&emsp;Regístrate con Google
+                    </a>
+                    <a class="btn-dark btn-lg btn-block" style="background-color: #3b5998; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " href="{{ route('login.facebook')}}" role="button">
+                      <i class="fa fa-facebook-official"></i>&emsp;Regístrate con Facebook
+                    </a>
+                    <a class="btn-dark btn-lg btn-block" style="background-color: #737476; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " href="{{ route('login.github')}}"role="button">
+                      <i class="fa fa-github"></i>&emsp;Regístrate con Github</a>
+                      </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 							</div>											
 						</div>
 					</div><!--end main products area-->		

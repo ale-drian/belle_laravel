@@ -8,7 +8,7 @@
         	<div class="home-slideshow">
             	<div class="slide">
                 	<div class="blur-up lazyload">
-                        <img class="blur-up lazyload" data-src="{{ asset('assets_belle/images/slideshow-banners/home2-default-banner1.jpg') }}" src="{{ asset('assets_belle/images/slideshow-banners/home2-default-banner1.jpg') }}" alt="Shop Our New Collection" title="Shop Our New Collection" />
+                        <img class="blur-up lazyload" data-src="{{ asset('assets_belle/images/fondo1.png') }}" src="{{ asset('assets_belle/images/fondo1.png') }}" alt="Shop Our New Collection" title="Shop Our New Collection" />
                         <div class="slideshow__text-wrap slideshow__overlay classic middle">
                             <div class="slideshow__text-content middle">
                             	<div class="container">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="slide">
                 	<div class="blur-up lazyload">
-                        <img class="blur-up lazyload" data-src="{{ asset('assets_belle/images/slideshow-banners/home2-default-banner2.jpg') }}" src="{{ asset('assets_belle/images/slideshow-banners/home2-default-banner2.jpg') }}" alt="Summer Bikini Collection" title="Summer Bikini Collection" />
+                        <img class="blur-up lazyload" data-src="{{ asset('assets_belle/images/fondo2.png') }}" src="{{ asset('assets_belle/images/fondo2.png') }}" alt="Summer Bikini Collection" title="Summer Bikini Collection" />
                         <div class="slideshow__text-wrap slideshow__overlay classic middle">
                             <div class="slideshow__text-content middle">
                             	<div class="container">
@@ -58,13 +58,13 @@
                                     <!-- start product image -->
                                     <a href="product-layout-1.html" class="grid-view-item__link">
                                         <!-- image -->
-                                        <img class="primary blur-up lazyload" data-src="{{asset('assets_belle/images/product-images/product-image1.jpg') }}" src="{{asset('assets_belle/images/product-images/product-image1.jpg') }}" alt="image" title="product">
+                                        <img class="primary blur-up lazyload" data-src="{{asset('assets_belle/images/product-images/aproduct-image1.jpg') }}" src="{{asset('assets_belle/images/product-images/product-image1.jpg') }}" alt="image" title="product">
                                         <!-- End image -->
                                         <!-- Hover image -->
-                                        <img class="hover blur-up lazyload" data-src="{{asset('assets_belle/images/product-images/product-image1-1.jpg') }}" src="{{asset('assets_belle/images/product-images/product-image1-1.jpg') }}" alt="image" title="product">
+                                        <img class="hover blur-up lazyload" data-src="{{asset('assets_belle/images/product-images/aproduct-image1.jpg') }}" src="{{asset('assets_belle/images/product-images/product-image1-1.jpg') }}" alt="image" title="product">
                                         <!-- End hover image -->
                                         <!-- Variant Image-->
-                                        <img class="grid-view-item__image hover variantImg" src="{{asset('assets_belle/images/product-images/product-image1.jpg') }}" alt="image" title="product">
+                                        <img class="grid-view-item__image hover variantImg" src="{{asset('assets_belle/images/product-images/aproduct-image1.jpg') }}" alt="image" title="product">
                                         <!-- Variant Image-->
                                         <!-- product label -->
                                         <div class="product-labels rounded"><span class="lbl on-sale">Sale</span> <span class="lbl pr-label1">new</span></div>
@@ -126,13 +126,13 @@
                                     <!-- start product image -->
                                     <a href="product-layout-1.html" class="grid-view-item__link">
                                         <!-- image -->
-                                        <img class="primary blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image2.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image2.jpg') }}" alt="image" title="product">
+                                        <img class="primary blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/aproduct-image2.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image2.jpg') }}" alt="image" title="product">
                                         <!-- End image -->
                                         <!-- Hover image -->
-                                        <img class="hover blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image2-1.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image2-1.jpg') }}" alt="image" title="product">
+                                        <img class="hover blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/aproduct-image2.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image2-1.jpg') }}" alt="image" title="product">
                                         <!-- End hover image -->
                                         <!-- Variant Image-->
-                                        <img class="grid-view-item__image hover variantImg" src="{{ asset('assets_belle/images/product-images/product-image1.jpg') }}" alt="image" title="product">
+                                        <img class="grid-view-item__image hover variantImg" src="{{ asset('assets_belle/images/product-images/aproduct-image2.jpg') }}" alt="image" title="product">
                                         <!-- Variant Image-->
                                     </a>
                                     <!-- end product image -->
@@ -190,13 +190,13 @@
                                     <!-- start product image -->
                                    <a href="product-layout-1.html" class="grid-view-item__link">
                                         <!-- image -->
-                                        <img class="primary blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image3.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image3.jpg') }}" alt="image" title="product">
+                                        <img class="primary blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/aproduct-image3.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image3.jpg') }}" alt="image" title="product">
                                         <!-- End image -->
                                         <!-- Hover image -->
-                                        <img class="hover blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image3-1.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image3-1.jpg') }}" alt="image" title="product">
+                                        <img class="hover blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/aproduct-image3.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image3-1.jpg') }}" alt="image" title="product">
                                         <!-- End hover image -->
                                         <!-- Variant Image-->
-                                        <img class="grid-view-item__image hover variantImg" src="{{ asset('assets_belle/images/product-images/product-image3.jpg') }}" alt="image" title="product">
+                                        <img class="grid-view-item__image hover variantImg" src="{{ asset('assets_belle/images/product-images/aproduct-image3.jpg') }}" alt="image" title="product">
                                         <!-- Variant Image-->
                                         <!-- product label -->
                                         <div class="product-labels rounded"><span class="lbl pr-label2">Hot</span></div>
@@ -256,13 +256,13 @@
                                     <!-- start product image -->
                                     <a href="product-layout-1.html" class="grid-view-item__link">
                                         <!-- image -->
-                                        <img class="primary blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image4.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image4.jpg') }}" alt="image" title="product" />
+                                        <img class="primary blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/aproduct-image4.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image4.jpg') }}" alt="image" title="product" />
                                         <!-- End image -->
                                         <!-- Hover image -->
-                                        <img class="hover blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image4-1.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image4-1.jpg') }}" alt="image" title="product" />
+                                        <img class="hover blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/aproduct-image4.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image4-1.jpg') }}" alt="image" title="product" />
                                         <!-- End hover image -->
                                         <!-- Variant Image-->
-                                        <img class="grid-view-item__image hover variantImg" src="{{ asset('assets_belle/images/product-images/product-image3.jpg') }}" alt="image" title="product">
+                                        <img class="grid-view-item__image hover variantImg" src="{{ asset('assets_belle/images/product-images/aproduct-image4.jpg') }}" alt="image" title="product">
                                         <!-- Variant Image-->
                                         <!-- product label -->
                                         <div class="product-labels rounded"><span class="lbl on-sale">Sale</span></div>
