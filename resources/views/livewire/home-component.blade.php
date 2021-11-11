@@ -8,7 +8,7 @@
         	<div class="home-slideshow">
             	<div class="slide">
                 	<div class="blur-up lazyload">
-                        <img class="blur-up lazyload" data-src="{{ asset('assets_belle/images/slideshow-banners/home2-default-banner1.jpg') }}" src="{{ asset('assets_belle/images/slideshow-banners/home2-default-banner1.jpg') }}" alt="Shop Our New Collection" title="Shop Our New Collection" />
+                        <img class="blur-up lazyload" data-src="{{ asset('assets_belle/images/fondo1.png') }}" src="{{ asset('assets_belle/images/fondo1.png') }}" alt="Shop Our New Collection" title="Shop Our New Collection" />
                         <div class="slideshow__text-wrap slideshow__overlay classic middle">
                             <div class="slideshow__text-content middle">
                             	<div class="container">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="slide">
                 	<div class="blur-up lazyload">
-                        <img class="blur-up lazyload" data-src="{{ asset('assets_belle/images/slideshow-banners/home2-default-banner2.jpg') }}" src="{{ asset('assets_belle/images/slideshow-banners/home2-default-banner2.jpg') }}" alt="Summer Bikini Collection" title="Summer Bikini Collection" />
+                        <img class="blur-up lazyload" data-src="{{ asset('assets_belle/images/fondo2.png') }}" src="{{ asset('assets_belle/images/fondo2.png') }}" alt="Summer Bikini Collection" title="Summer Bikini Collection" />
                         <div class="slideshow__text-wrap slideshow__overlay classic middle">
                             <div class="slideshow__text-content middle">
                             	<div class="container">
