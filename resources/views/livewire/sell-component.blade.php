@@ -16,62 +16,78 @@
                 <div class="row col-md-7 pt-1">
                     <div class="col-12 col-sm-12">
                         <div class="mb-4 pt-4">
-                            <form method="post" action="#" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">
+                            <form wire:submit.prevent="submitFormSell" id="CustomerLoginForm"
+                                  class="contact-form">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="ProductName">Nombre</label>
-                                                <input type="text" name="product[name]" placeholder="" id="ProductName" class=""
+                                                <input type="text" wire:model="name" placeholder="" id="ProductName" class=""
                                                        autocorrect="off" autocapitalize="off" autofocus="">
+                                                @error('name') <span class="alert-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="ProductBrand">Marca</label>
-                                                <select name="product[brand]" id="ProductBrand" class="my-1 mr-sm-2">
+                                                <select wire:model="brand" id="ProductBrand" class="my-1 mr-sm-2">
                                                     <option selected>Seleccionar</option>
                                                     @foreach($brands as $brand)
-                                                        <option value="joyeria">{{ $brand->name }}</option>
+                                                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                                     @endforeach
-
                                                 </select>
+                                                @error('brand') <span class="alert-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="ProductSize">Talla</label>
-                                                <input type="text" name="product[size]" placeholder="" id="ProductSize" class=""
-                                                       autocorrect="off" autocapitalize="off" autofocus="">
+                                                <select wire:model="size" id="ProductSize">
+                                                    <option selected>Seleccionar</option>
+                                                    @foreach($sizes as $size)
+                                                        <option value="{{ $size->id }}">{{ $size->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('size') <span class="alert-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="ProductCategory">Categoria</label>
-                                                <select name="product[category]" id="ProductCategory" class="my-1 mr-sm-2">
+                                                <select wire:model="category" id="ProductCategory" class="my-1 mr-sm-2">
                                                     <option selected>Seleccionar</option>
                                                     @foreach($categories as $category)
-                                                        <option value="joyeria">{{ $category->name }}</option>
+                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
-
                                                 </select>
+                                                @error('category') <span class="alert-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="ProductPrice">Precio</label>
-                                                <input type="number" name="product[price]" placeholder="" id="ProductPrice" class=""
+                                                <input type="number" wire:model="price" placeholder="" id="ProductPrice" class=""
                                                        autocorrect="off" autocapitalize="off" autofocus="">
+                                                @error('price') <span class="alert-danger">{{ $message }}</span> @enderror
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="ProductState">Estado</label>
-                                                <select name="product[state]" id="ProductState" class="my-1 mr-sm-2">
+                                                <select wire:model="state" id="ProductState" class="my-1 mr-sm-2">
                                                     <option selected>Seleccionar</option>
-                                                    <option value="0">No disponible</option>
-                                                    <option value="1">Disponible</option>
+                                                    <option value="No disponible">No disponible</option>
+                                                    <option value="Disponible">Disponible</option>
                                                 </select>
+                                                @error('state') <span class="alert-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <input type="file" class="custom-file-input" id="ProductImage" />
-                                                <label class="custom-file-label" for="ProductImage">Escoger Imagen</label>
+                                                <label  for="ProductImage">Escoger Imagen</label>
+
+                                                <input type="file" wire:model="image"
+                                                       class="form-control">
+                                                <div wire:loading wire:target="image">
+                                                    Subiendo...
+                                                </div>
+
+                                                @error('image') <span class="alert-danger">{{ $message }}</span> @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -86,17 +102,35 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="h-100 bg-placeholder-image shadow-sm flex align-items-center justify-content-center">
+                    <span>Imagen: {{ $image }}</span>
+
+                    @if($image)
                         <div>
-                <span class="text-size-image">
-                  Cargando imagen...
-                </span>
+                            <img src="{{ $image->temporaryUrl() }}">
+                        </div>
+                        {{-- <div class="row">
+                            @foreach($image as $img)
+                                <div class="col-3 card mb-1">
+                                    <img src="{{ $img->temporaryUrl() }}">
+                                </div>
+                            @endforeach
+                        </div> --}}
+                    @endif
+                    <div class="h-100 bg-placeholder-image shadow-sm flex align-items-center justify-content-center">
+
+                        <div>
+                        <span class="text-size-image">
+                          Cargando imagen...
+                        </span>
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
 
     </div>
     <!--End Body Content-->
+
 </div>
