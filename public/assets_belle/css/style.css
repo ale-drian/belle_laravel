@@ -1583,7 +1583,8 @@ body.home15-funiture-template { font-size:14px; }
 /*======================================================================
   33. Footer
 ========================================================================*/  
-#footer { margin-top:35px; }
+/* #footer { margin-top:35px; position: fixed !important; bottom: 0 !important;width: 100%;} */
+#footer { margin-top:35px; position: relative !important; bottom: 0 !important;width: 100%;}
 .footer-2 .site-footer { background-color:#fff; }
 .footer-2 .footer-top h4, .footer-2 .footer-top .h4 { color:#000000; font-size:15px; font-weight:400; font-family:Poppins,Helvetica,Tahoma,Arial,sans-serif; margin-bottom:15px; }
 .footer-2 .footer-top, .footer-2 .footer-links a, .footer-2 .footer-top p, .footer-2 .footer-bottom, .footer-2 .footer-bottom a { color:#333333; }

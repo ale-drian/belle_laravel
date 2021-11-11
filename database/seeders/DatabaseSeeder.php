@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Category;
+use App\Models\Brand;
 
 class DatabaseSeeder extends Seeder
 {
@@ -65,7 +66,26 @@ class DatabaseSeeder extends Seeder
                     break;
             }
         }
+        $brands = ["Otro", "Nike", "Adidas", "Levis", "Zara", "H&M", "Lacoste", "Guess", "Mango", "Forever 21"];
+        $descripions = ["Otro", "Nike", "Adidas", "Levis", "Zara", "H&M", "Lacoste", "Guess", "Mango", "Forever 21"];
+        foreach( $brands as $i=>$b){
+            $brand = new Brand();
+            $brand->name     = $b;
+            $brand->description    = $descripions[$i];
+            $brand->save();
+        };
 
+        
+        $sizes = ["XS", "S", "M", "L", "XL", "XXL", "37", "38", "39", "35"];
+        $descripion_sizes = ["XS", "S", "M", "L", "XL", "XXL", "37", "38", "39", "35"];
+        foreach( $sizes as $i=>$s){
+            $size = new Size();
+            $size->name     = $s;
+            $size->description    = $descripion_sizes[$i];
+            $size->save();
+        };
+        
+        
         // \App\Models\User::factory(10)->create();
         // \App\Models\Category::factory(6)->create();
         // \App\Models\Product::factory(22)->create();
