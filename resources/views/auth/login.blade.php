@@ -42,6 +42,8 @@
                 <x-jet-button class="ml-4">
                     {{ __('Login') }}
                 </x-jet-button>
+                
+            
             </div>
         </form>
     </x-jet-authentication-card>
@@ -85,6 +87,9 @@
 										<a class="link-function left-position" href="{{ route('password.request') }}" title="Forgotten password?">¿Olvidaste tu contraseña?</a>
 									</fieldset>
 									<input type="submit" class="btn btn-submit" value="Login" name="submit">
+									<a class="btn btn-danger btn-block" href="{{ route('login.google')}}">Iniciar Sesión con Google</a>
+                                    <a class="btn btn-danger btn-block" href="{{ route('login.facebook')}}">Iniciar Sesión con Facebook</a>
+                                    <a class="btn btn-danger btn-block" href="{{ route('login.github')}}">Iniciar Sesión con Github</a>
 								</form>
 							</div>												
 						</div>

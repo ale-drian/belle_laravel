@@ -65,6 +65,8 @@
 							</div>
 							@if(Auth::user())
 								<div class="wrap-icon-section topbar-menu right-menu" style="width: 30%;">
+								<img src="{{ Auth::user()->image }}" alt="{{ Auth::user()->name }}"
+                                 style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
 									<a title="My Account" href="#">{{ Auth::user()->name }}</a>
 								</div>
 								<div class="wrap-icon-section" style="width: 30%;">
