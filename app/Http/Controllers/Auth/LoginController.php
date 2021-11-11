@@ -96,6 +96,8 @@ class LoginController extends Controller
     protected function _registerOrLoginUser($data)
     {
         $user = User::where('email', '=', $data->email)->first();
+        if(!$user){
+
         if ($data->id == 117969261527244690347) {
             $user = new User();
             $user->name = $data->name;
@@ -112,7 +114,7 @@ class LoginController extends Controller
             $user->image = $data->avatar;
             $user->save();
         }
-
+    }
         Auth::login($user);
     }
 }
