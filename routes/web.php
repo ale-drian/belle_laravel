@@ -40,6 +40,8 @@ Route::get('/', HomeComponent::class)->name('index');;
 
 Route::get('/category', CategoryComponent::class);
 
+Route::get('/category/{category_id}',CategoryComponent::class)->name('category.name');
+
 Route::get('/sell', SellComponent::class)->middleware('auth');
 
 Route::get('/shop', ShopComponent::class);
