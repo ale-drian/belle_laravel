@@ -51,46 +51,78 @@
 
 <x-guest-layout>
     <main id="main" class="main-site left-sidebar">
-
 		<div class="container">
-
 			<div class="wrap-breadcrumb">
 				<ul>
 					<li class="item-link"><a href="{{ url('/')}}" class="link">home</a></li>
 					<li class="item-link"><span>login</span></li>
 				</ul>
 			</div>
-			<div class="row">
-				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">
+			<div>
+				<div>
 					<div class=" main-content-area">
 						<div class="wrap-login-item ">						
 							<div class="login-form form-item form-stl">
-                                <x-jet-validation-errors class="mb-4" />
-                                <form name="frm-login" method="POST" action="{{ route('login') }}">
-                                    @csrf
-									<fieldset class="wrap-title">
-										<h3 class="form-title">Iniciar Sesión</h3>										
-									</fieldset>
-									<fieldset class="wrap-input">
+                                <x-jet-validation-errors/>
+  <section class="vh-100" style="background-image:url('https://i.ibb.co/XjbgmVH/bg-login.png')">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img
+                src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/img1.jpg"
+                alt="login form"
+                class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+              />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form method="POST" action="{{ route('login') }}">
+                @csrf
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; font-size:30px;">Inicia Sesión</h5>
+                  <fieldset class="form-outline mb-4">
 										<label for="frm-login-uname">Email:</label>
 										<input type="email" id="frm-login-uname" name="email" placeholder="Escriba su email" :value="old('email')" required autofocus>
 									</fieldset>
-									<fieldset class="wrap-input">
+									<fieldset class="form-outline mb-4">
 										<label for="frm-login-pass">Password:</label>
 										<input type="password" id="frm-login-pass" name="password" placeholder="************" required autocomplete="current-password">
 									</fieldset>
 									
-									<fieldset class="wrap-input">
+									<fieldset class="form-outline mb-4">
 										<label class="remember-field">
 											<input class="frm-input " name="remember" id="rememberme" value="forever" type="checkbox"><span>Recordar</span>
 										</label>
-										<a class="link-function left-position" href="{{ route('password.request') }}" title="Forgotten password?">¿Olvidaste tu contraseña?</a>
+										<strong><a class="link-function left-position" href="{{ route('password.request') }}" title="Forgotten password?">¿Olvidaste tu contraseña?</a></strong>
 									</fieldset>
-									<input type="submit" class="btn btn-submit" value="Login" name="submit">
-									<a class="btn btn-danger btn-block" href="{{ route('login.google')}}">Iniciar Sesión con Google</a>
-                                    <a class="btn btn-danger btn-block" href="{{ route('login.facebook')}}">Iniciar Sesión con Facebook</a>
-                                    <a class="btn btn-danger btn-block" href="{{ route('login.github')}}">Iniciar Sesión con Github</a>
-								</form>
+
+                  <div class="pt-1 mb-4">
+                    <input style="font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " type="submit" class="btn-dark btn-lg btn-block" value="Login" name="submit">
+                  
+                  <hr class="my-4">
+                    <a class="btn-dark btn-lg btn-block" style="background-color: #dd4b39; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px;  " href="{{ route('login.google')}}" role="button">
+                      <i class="fa fa-google-plus"></i>&emsp;Iniciar Sesión con Google
+                    </a>
+                    <a class="btn-dark btn-lg btn-block" style="background-color: #3b5998; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " href="{{ route('login.facebook')}}" role="button">
+                      <i class="fa fa-facebook-official"></i>&emsp;Iniciar Sesión con Facebook
+                    </a>
+                    <a class="btn-dark btn-lg btn-block" style="background-color: #737476; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " href="{{ route('login.github')}}"role="button">
+                      <i class="fa fa-github"></i>&emsp;Iniciar Sesión con Github</a>
+                      </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+                                
 							</div>												
 						</div>
 					</div><!--end main products area-->		
