@@ -13,6 +13,8 @@ use Livewire\WithFileUploads;
 
 class SellComponent extends Component
 {
+    use WithFileUploads;
+    
     public $name;
     public $brand;
     public $size;
@@ -38,7 +40,7 @@ class SellComponent extends Component
     public function submitFormSell()
     {
          $this->validate();
-
+        $this->image->storage("public/images_producto");
         $user = Auth::user();
         $product = new Product();
         $product->name = $this->name;

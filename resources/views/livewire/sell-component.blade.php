@@ -17,6 +17,7 @@
                     <div class="col-12 col-sm-12">
                         <div class="mb-4 pt-4">
                             <form wire:submit.prevent="submitFormSell" id="CustomerLoginForm"
+                                    enctype="multipart/form-data"
                                   class="contact-form">
                                 <div class="row">
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -54,7 +55,11 @@
                                                 <select wire:model="category" id="ProductCategory" class="my-1 mr-sm-2">
                                                     <option selected>Seleccionar</option>
                                                     @foreach($categories as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        @if($category->category_idcategory == null)
+                                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                        @else
+                                                            <option value="{{ $category->id }}">&nbsp;&nbsp;&nbsp;&nbsp;{{ $category->name }}</option>
+                                                        @endif
                                                     @endforeach
                                                 </select>
                                                 @error('category') <span class="alert-danger">{{ $message }}</span> @enderror
