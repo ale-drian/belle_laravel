@@ -549,10 +549,10 @@
                                         <!-- start product image -->
                                         <a href="#">
                                             <!-- image -->
-                                            <img class="primary blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image26.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image26.jpg') }}" alt="image" title="product">
+                                            <img class="primary blur-up lazyload" data-src="{{ asset( 'storage/'.$product->image )}}" src="{{ asset( 'storage/'.$product->image )}}" alt="image" title="product"/>
                                             <!-- End image -->
                                             <!-- Hover image -->
-                                            <img class="hover blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image26-1.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image26-1.jpg') }}" alt="image" title="product">
+                                            <img class="hover blur-up lazyload" data-src="{{ asset( 'storage/'.$product->image )}}" src="{{ asset( 'storage/'.$product->image )}}" alt="image" title="product"/>
                                             <!-- End hover image -->
                                             <!-- product label -->
                                             <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">new</span></div>
