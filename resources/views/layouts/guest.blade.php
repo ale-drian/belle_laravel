@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>	
+	<title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
@@ -16,7 +16,9 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
-	
+
+	<!-- Selec2 -->
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="{{ asset('assets_belle/images/favicon.png') }}" />
 	<!-- Plugins CSS -->
@@ -27,7 +29,7 @@
 	<link rel="stylesheet" href="{{ asset('assets_belle/css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets_belle/css/responsive.css') }}">
 
-	@livewireStyles	
+	@livewireStyles
 </head>
 <body class="home-page home-01 ">
 
@@ -50,31 +52,38 @@
 						<div class="wrap-logo-top left-section">
 							<a href="{{ url('/') }}" class="link-to-home"><img src="{{ asset('assets_belle/images/logo.svg') }}" alt="mercado"></a>
 						</div>
-						
+
 						@livewire('header-search-component')
 
 						<div class="wrap-icon right-section">
-							
+
 							<div class="wrap-icon-section" style="width: 20%; margin-right: 45px;">
 								<div class="site-cart">
-								<a href="#" class="site-header__cart" title="Cart">
+								<a href="{{ url('/cart') }}" class="site-header__cart" title="Cart">
 									<i class="icon anm anm-bag-l"></i>
 									<span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
 								</a>
 								</div>
 							</div>
 							@if(Auth::user())
-								<div class="wrap-icon-section topbar-menu right-menu" style="width: 60%;">
-									<a title="My Account" href="#">{{ Auth::user()->name }}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-									<ul class="submenu curency" >
-										<li class="menu-item" >
-											<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
-										</li>
-										<form id="logout-form" method="POST" action="{{ route('logout') }}">
-											@csrf													
-										</form>
-									</ul>
+								<div class="wrap-icon-section topbar-menu right-menu" style="width: 30%;">
+								@if(Auth::user()->image == null)
+								<div class="mt-2" x-show="! photoPreview">
+								<img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
+							</div>
+								@else
+								<img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"
+                                 style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
+								@endif
+								 	<a title="My Account" href="{{ route('profile.show') }}">{{ Auth::user()->name }}</a>
+									 
 								</div>
+								<div class="wrap-icon-section" style="width: 30%;">
+									<a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
+									<form id="logout-form" method="POST" action="{{ route('logout') }}">
+										@csrf
+									</form>
+								</div> 
 							@else
 								<div class="wrap-icon-section" style="width: 30%;">
 									<a href="{{ route('login') }}" class="link-direction btn">Login</a>
@@ -92,19 +101,16 @@
 				<div class="nav-section header-sticky">
 					    <!--Header-->
     <div class="header-wrap animated d-flex border-bottom">
-    	<div class="container-fluid">        
+    	<div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-2 col-sm-3 col-md-3 col-lg-8">
+                <div class="col-2 col-sm-3 col-md-3 col-lg-8 offset-lg-2">
                 	<div class="d-block d-lg-none">
                         <button type="button" class="btn--link site-header__menu js-mobile-nav-toggle mobile-nav--open">
                         	<i class="icon anm anm-times-l"></i>
                             <i class="anm anm-bars-r"></i>
                         </button>
                     </div>
-                	<!--Desktop Menu-->
-                	
-						@livewire('header-menu-component')
-                    <!--End Desktop Menu-->
+                    @livewire('header-menu-component')
                 </div>
                 <!--Mobile Logo-->
                 <div class="col-6 col-sm-6 col-md-6 col-lg-2 d-block d-lg-none mobile-logo">
@@ -114,7 +120,7 @@
                         </a>
                     </div>
                 </div>
-                
+
         	</div>
         </div>
     </div>
@@ -123,11 +129,11 @@
 			</div>
 		</div>
     </header>
-    
+
     {{ $slot }}
 
 	<footer id="footer" class="footer-2">
-        <div class="newsletter-section">
+        <div class="newsletter-section ">
             <div class="container">
                 <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-7 w-100 d-flex justify-content-start align-items-center">
@@ -161,31 +167,28 @@
                             </div>
                         </div>
                     </div>
-            </div>    
+            </div>
         </div>
-    </footer>
-
-			<div class="coppy-right-box">
-				<div class="container">
-					<div class="coppy-right-item item-left">
-						<p class="coppy-right-text">Copyright © 2021 Tecsup</p>
-					</div>
-					<div class="coppy-right-item item-right">
-						<div class="wrap-nav horizontal-nav">
-							<ul>
-								<li class="menu-item"><a href="{{ url('/about-us') }}" class="link-term">Nosotros</a></li>								
-								<li class="menu-item"><a href="{{ url('/privacy-policy') }}" class="link-term">Politica de Privacidad</a></li>
-								<li class="menu-item"><a href="{{ url('/terms-conditions') }}" class="link-term">Terminos y Condiciones</a></li>
-								<li class="menu-item"><a href="{{ url('/return-policy') }}" class="link-term">Politica de Devolución</a></li>								
-							</ul>
-						</div>
-					</div>
-					<div class="clearfix"></div>
+		<div class="coppy-right-box">
+			<div class="container">
+				<div class="coppy-right-item item-left">
+					<p class="coppy-right-text">Copyright © 2021 Tecsup</p>
 				</div>
+				<div class="coppy-right-item item-right">
+					<div class="wrap-nav horizontal-nav">
+						<ul>
+							<li class="menu-item"><a href="{{ url('/about-us') }}" class="link-term">Nosotros</a></li>
+							<li class="menu-item"><a href="{{ url('/privacy-policy') }}" class="link-term">Politica de Privacidad</a></li>
+							<li class="menu-item"><a href="{{ url('/terms-conditions') }}" class="link-term">Terminos y Condiciones</a></li>
+							<li class="menu-item"><a href="{{ url('/return-policy') }}" class="link-term">Politica de Devolución</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
-	</footer>
-	
+    </footer>
+
 	<script src="{{ asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4') }}"></script>
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -208,5 +211,7 @@
 	<script src="{{ asset('assets_belle/js/popper.min.js') }}"></script>
 	<script src="{{ asset('assets_belle/js/lazysizes.js') }}"></script>
 	<script src="{{ asset('assets_belle/js/main.js') }}"></script>
+	<!-- Select 2 -->
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
 </html>

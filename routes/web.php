@@ -87,12 +87,11 @@ Route::get('login/facebook/callback', [App\Http\Controllers\Auth\LoginController
 Route::get('login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
 Route::get('login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
 
-/*
+
 // Dashboard igual para todos los tipos de usuario
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-*/
 
 // Dashboard particular para usuarios o clientes
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){

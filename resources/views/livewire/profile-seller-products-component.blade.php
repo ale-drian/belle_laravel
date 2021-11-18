@@ -1,6 +1,6 @@
 <main id="main" class="main-site container">
     <!--Sidebar-->
-    <div class="row pt-5">
+    <div class="row pt-5" style="min-height: 60vh !important;">
         <div class="col-12 col-sm-12 col-md-3 col-lg-3 sidebar filterbar">
             <div class="closeFilter d-block d-md-none d-lg-none"><i class="icon icon anm anm-times-l"></i></div>
             <div class="sidebar_tags">
@@ -70,9 +70,10 @@
                     <div class="row">
                         @if( count($products) == 0)
                             <div class="col-12">
-                                <div class="alert alert-warning text-center">
+                                <div class="alert alert-warning text-center h-100">
                                     <span>Aun no tiene productos</span>
                                 </div>
+                                <a class="btn" a href="{{ url('/sell') }}">Vender</a>
                             </div>
                         @else
                             @foreach($products as $product)
