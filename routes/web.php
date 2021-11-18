@@ -14,6 +14,9 @@ use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\SellComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\TermsConditionsComponent;
+use App\Http\Livewire\ProfileUserComponent;
+use App\Http\Livewire\ProfileSellerProductsComponent;
+use App\Http\Livewire\ProfileBuyerProductsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -65,6 +68,10 @@ Route::get('/privacy-policy', PrivacyPolicyComponent::class);
 Route::get('/return-policy', ReturnPolicyComponent::class);
 
 Route::get('/terms-conditions', TermsConditionsComponent::class);
+
+Route::get('/profile', ProfileUserComponent::class)->name('profile');
+Route::get('/profile/sell', ProfileSellerProductsComponent::class)->name('profile-sell');
+Route::get('/profile/buy', ProfileBuyerProductsComponent::class)->name('profile-buy');
 
 //Login Socialite
 

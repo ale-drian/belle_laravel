@@ -103,7 +103,7 @@ class LoginController extends Controller
             $user->name = $data->name;
             $user->email = $data->email;
             $user->provider_id = $data->id;
-            $user->image = $data->avatar;
+            $user->profile_photo_url = $data->avatar;
             $user->save();
             //Si se almacena la informacion con Github
         }else if($data->id == 72943362 ){
@@ -111,7 +111,7 @@ class LoginController extends Controller
             $user->name = $data->nickname;
             $user->email = $data->email;
             $user->provider_id = $data->id;
-            $user->image = $data->avatar;
+            $user->profile_photo_url = $data->avatar;
             $user->save();
         }
     }

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->decimal('price');
             $table->string('state');
+            $table->string('image');
             $table->unsignedBigInteger('user_iduser_seller')->nullable();
             $table->unsignedBigInteger('category_idcategory');
             $table->unsignedBigInteger('size_idsize');

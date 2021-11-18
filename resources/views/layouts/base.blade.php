@@ -68,13 +68,14 @@
 							@if(Auth::user())
 								<div class="wrap-icon-section topbar-menu right-menu" style="width: 30%;">
 								@if(Auth::user()->image == null)
-								<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="{{ Auth::user()->name }}"
-                                 style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
+								<div class="mt-2" x-show="! photoPreview">
+								<img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
+							</div>
 								@else
-								<img src="{{ Auth::user()->image }}" alt="{{ Auth::user()->name }}"
+								<img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"
                                  style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
 								@endif
-								 	<a title="My Account" href="#">{{ Auth::user()->name }}</a>
+								 	<a title="My Account" href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
 									 
 								</div>
 								<div class="wrap-icon-section" style="width: 30%;">
