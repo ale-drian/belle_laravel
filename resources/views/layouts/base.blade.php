@@ -74,7 +74,7 @@
 								<img src="{{ Auth::user()->image }}" alt="{{ Auth::user()->name }}"
                                  style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto;float:left; margin-right: 7px;">
 								@endif
-								 	<a title="My Account" href="#">{{ Auth::user()->name }}</a>
+								 	<a title="My Account" href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
 									 
 								</div>
 								<div class="wrap-icon-section" style="width: 30%;">
