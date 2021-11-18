@@ -14,7 +14,8 @@ class CategoryComponent extends Component
 {
 
     public $products;
-    public $prices;
+    public $priceMin;
+    public $priceMax;
 
     public function mount( $category_id = '' )
     {
@@ -36,5 +37,12 @@ class CategoryComponent extends Component
         ])->layout('layouts.base');
     }
 
+    public function applyPrice()
+    {
+        $this->products = Product::where([
+          ['price','>=',$this->priceMin],
+          ['price','<=',$this->priceMax]
+        ])->get();
+    }
 
 }

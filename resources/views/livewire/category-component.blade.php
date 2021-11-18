@@ -31,21 +31,25 @@
                     <div class="widget-title">
                         <h2>Precio</h2>
                     </div>
-                    <form action="#" method="post" class="price-filter">
-                        <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-                            <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <p class="no-margin"><input id="amount" type="text" value="S/5 - S/30"></p>
+                    <div class="price-filter">
+                        <form wire:submit.prevent="applyPrice">
+                            <div class="row justify-content-between">
+                                <div>
+                                    <input type="text" wire:model="priceMin" placeholder="S/. 00.00"/>
+                                </div>
+                                <div>
+                                    <input type="text" wire:model="priceMax" placeholder="S/. 00.00"/>
+                                </div>
                             </div>
-                            <div class="col-6 text-right margin-25px-top">
-                                <button class="btn btn-secondary btn--small">filtrar</button>
+                            <div class="mt-4 text-center">
+                                @if(strlen($priceMin) !== 0 && strlen($priceMax) !== 0)
+                                    <button class="btn-filter-belle">Aplicar precio</button>
+                                @else
+                                    <button class="btn-filter-belle_disabled" disabled>Aplicar precio </button>
+                                @endif
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
                 <!--End Price Filter-->
                 <!--Size Swatches-->
@@ -547,7 +551,7 @@
                                     <!-- start product image -->
                                     <div class="product-image">
                                         <!-- start product image -->
-                                        <a href="#">
+                                        <a href="{{ route('product.details', ['slug'=> $product->id]) }}">
                                             <!-- image -->
                                             <img class="primary blur-up lazyload" data-src="{{ asset('assets_belle/images/product-images/product-image26.jpg') }}" src="{{ asset('assets_belle/images/product-images/product-image26.jpg') }}" alt="image" title="product">
                                             <!-- End image -->
