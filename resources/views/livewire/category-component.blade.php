@@ -57,15 +57,13 @@
                     <div class="widget-title"><h2>Talla</h2></div>
                     <div class="filter-color swacth-list">
                         <ul>
-                            <li><span class="swacth-btn checked">X</span></li>
-                            <li><span class="swacth-btn">XL</span></li>
-                            <li><span class="swacth-btn">XLL</span></li>
-                            <li><span class="swacth-btn">M</span></li>
-                            <li><span class="swacth-btn">L</span></li>
-                            <li><span class="swacth-btn">S</span></li>
-                            <li><span class="swacth-btn">XXXL</span></li>
-                            <li><span class="swacth-btn">XXL</span></li>
-                            <li><span class="swacth-btn">XS</span></li>
+                            @foreach($sizes as $size)
+                                <li wire:click="applySize({{ $size }})">
+                                    <span class="swacth-btn checked">
+                                        {{ $size->name }}
+                                    </span>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -97,26 +95,12 @@
                 <div class="sidebar_widget filterBox filter-widget">
                     <div class="widget-title"><h2>Marca</h2></div>
                     <ul>
-                        <li>
-                            <input type="checkbox" value="allen-vela" id="check1">
-                            <label for="check1"><span><span></span></span>Index</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" value="oxymat" id="check3">
-                            <label for="check3"><span><span></span></span>Zara</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" value="vanelas" id="check4">
-                            <label for="check4"><span><span></span></span>H&M</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" value="pagini" id="check5">
-                            <label for="check5"><span><span></span></span>Pagini</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" value="monark" id="check6">
-                            <label for="check6"><span><span></span></span>Monark</label>
-                        </li>
+                        @foreach($brands as $brand)
+                            <li>
+                                <input type="checkbox" wire:click="applyBrand({{ $brand }})" value="allen-vela" id="check1">
+                                <label for="check1"><span><span></span></span>{{ $brand->name }}</label>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <!--End Brand-->
@@ -145,14 +129,16 @@
                             <div class="col-4 col-md-4 col-lg-4 text-right">
                                 <div class="filters-toolbar__item">
                                     <label for="SortBy" class="hidden">Ordenar</label>
-                                    <select name="SortBy" id="SortBy" class="filters-toolbar__input filters-toolbar__input--sort">
-                                        <option value="title-ascending" selected="selected">Ordenar</option>
-                                        <option>Ordenar, A-Z</option>
-                                        <option>Ordenar, Z-A</option>
-                                        <option>Precio de menor a mayor</option>
-                                        <option>Precio de mayor a menor</option>
-                                        <option>Fecha más reciente</option>
-                                        <option>Fecha menos reciente</option>
+                                    <select name="SortBy" id="SortBy"
+                                            wire:change="applyOrd" wire:model="order"
+                                            class="filters-toolbar__input filters-toolbar__input--sort">
+                                        <option selected="selected">Ordenar</option>
+                                        <option value="ascName">Ordenar, A-Z</option>
+                                        <option value="descName">Ordenar, Z-A</option>
+                                        <option value="ascPrice">Precio de menor a mayor</option>
+                                        <option value="descPrice">Precio de mayor a menor</option>
+                                        <option value="ascDate">Fecha más reciente</option>
+                                        <option value="descDate">Fecha menos reciente</option>
                                     </select>
                                     <input class="collection-header__default-sort" type="hidden" value="manual">
                                 </div>
@@ -598,7 +584,9 @@
                                             <span class="price">S/ {{ $product->price }}</span>
                                         </div>
                                         <!-- End product price -->
-
+                                        <div class="">
+                                            <span class="">By: {{ $product->user->name }}</span>
+                                        </div>
                                         <div class="product-review">
                                             <i class="font-13 fa fa-star"></i>
                                             <i class="font-13 fa fa-star"></i>
