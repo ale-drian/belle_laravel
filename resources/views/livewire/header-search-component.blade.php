@@ -1,19 +1,22 @@
 <div class="wrap-search center-section">
     <div class="wrap-search-form">
-        <form action="{{ route('product.search') }}" id="form-search-top" name="form-search-top">
-            <input type="text" name="search" value="{{ $search }}" placeholder="Buscar ...">
-            <button form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <div id="form-search-top" name="form-search-top">
+            <input type="text" wire:model="search" class="inputSearch" value="{{ $search }}" placeholder="Buscar ...">
+            <ul class="list_ul">
+                @foreach($productos as $producto)
+                    <li><a href="{{route('product.details',['slug'=>$producto->id])}}">
+                           {{ $producto->name }}
+                        </a></li>
+                @endforeach
+            </ul>
             <div class="wrap-list-cate">
-                <input type="hidden" name="product_cat" value="{{ $product_cat }}" id="product-cate">
-                <input type="hidden" name="product_cat_id" value="{{ $product_cat_id }}" id="product-cate-id">
-                <a href="#" class="link-control">Todo</a>
-                <ul class="list-cate">
-                    <li class="level-0">Todo</li>
-                    @foreach ($categories as $category)
-                        <li class="level-1" data-id="{{ $category->id }}">{{ $category->name }}</li> 
+                <select wire:model="category" id="" class="">
+                    <option selected class="level-0">Seleccionar</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category}}" class="level-1">{{$category->name}}</option>
                     @endforeach
-                </ul>
+                </select>
             </div>
-        </form>
+        </div>
     </div>
 </div>
