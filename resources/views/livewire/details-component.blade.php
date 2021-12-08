@@ -5,7 +5,7 @@
             <!--Breadcrumb-->
             <div class="bredcrumbWrap">
                 <div class="container breadcrumbs" role="navigation" aria-label="breadcrumbs">
-                    <a href="index.html" title="Back to the home page">Home</a><span
+                    <a href="/" title="Back to the home page">Home</a><span
                         aria-hidden="true">›</span><span>Producto</span>
                 </div>
             </div>
@@ -19,77 +19,10 @@
                             <div class="product-details-img">
                                 <div class="zoompro-wrap product-zoom-right pl-20">
                                     <div class="zoompro-span">
-                                        <img class="blur-up lazyload zoompro"
-                                            data-zoom-image="assets/images/product-detail-page/product-with-right-thumbs-1.jpg"
+                                        <img class="img-detail__size"
+                                            data-zoom-image="{{ asset( 'storage/'.$product->image )}}"
                                             alt=""
-                                            src="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-1.jpg') }}" />
-                                    </div>
-
-                                </div>
-                                <div class="lightboximages">
-                                    <a href="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-1.jpg') }}"
-                                        data-size="1462x2048"></a>
-                                    <a href="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-2.jpg') }}"
-                                        data-size="1462x2048"></a>
-                                    <a href="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-3.jpg') }}"
-                                        data-size="1462x2048"></a>
-                                    <a href="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-4.jpg') }}"
-                                        data-size="1462x2048"></a>
-                                    <a href="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-5.jpg') }}"
-                                        data-size="1462x2048"></a>
-                                    <a href="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-6.jpg') }}"
-                                        data-size="1462x2048"></a>
-                                </div>
-                                <div class="product-thumb">
-                                    <div id="gallery" class="product-dec-slider-2 product-tab-left">
-                                        <a data-image="assets/images/product-detail-page/product-with-right-thumbs-1.jpg"
-                                            data-zoom-image="assets/images/product-detail-page/product-with-right-thumbs-1.jpg"
-                                            class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true"
-                                            tabindex="-1">
-                                            <img class="blur-up lazyload"
-                                                src="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-1.jpg') }}"
-                                                alt="" />
-                                        </a>
-                                        <a data-image="assets/images/product-detail-page/product-with-right-thumbs-2.jpg"
-                                            data-zoom-image="assets/images/product-detail-page/product-with-right-thumbs-2.jpg"
-                                            class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true"
-                                            tabindex="-1">
-                                            <img class="blur-up lazyload"
-                                                src="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-2.jpg') }}"
-                                                alt="" />
-                                        </a>
-                                        <a data-image="assets/images/product-detail-page/product-with-right-thumbs-3.jpg"
-                                            data-zoom-image="assets/images/product-detail-page/product-with-right-thumbs-3.jpg"
-                                            class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true"
-                                            tabindex="-1">
-                                            <img class="blur-up lazyload"
-                                                src="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-3.jpg') }}"
-                                                alt="" />
-                                        </a>
-                                        <a data-image="assets/images/product-detail-page/product-with-right-thumbs-4.jpg"
-                                            data-zoom-image="assets/images/product-detail-page/product-with-right-thumbs-4.jpg"
-                                            class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true"
-                                            tabindex="-1">
-                                            <img class="blur-up lazyload"
-                                                src="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-4.jpg') }}"
-                                                alt="" />
-                                        </a>
-                                        <a data-image="assets/images/product-detail-page/product-with-right-thumbs-5.jpg"
-                                            data-zoom-image="assets/images/product-detail-page/product-with-right-thumbs-5.jpg"
-                                            class="slick-slide slick-cloned" data-slick-index="0" aria-hidden="true"
-                                            tabindex="-1">
-                                            <img class="blur-up lazyload"
-                                                src="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-5.jpg') }}"
-                                                alt="" />
-                                        </a>
-                                        <a data-image="assets/images/product-detail-page/product-with-right-thumbs-6.jpg"
-                                            data-zoom-image="assets/images/product-detail-page/product-with-right-thumbs-6.jpg"
-                                            class="slick-slide slick-cloned" data-slick-index="1" aria-hidden="true"
-                                            tabindex="-1">
-                                            <img class="blur-up lazyload"
-                                                src="{{ asset('assets_belle/images/product-detail-page/product-with-right-thumbs-6.jpg') }}"
-                                                alt="" />
-                                        </a>
+                                            src="{{ asset( 'storage/'.$product->image ) }}" />
                                     </div>
                                 </div>
                             </div>
