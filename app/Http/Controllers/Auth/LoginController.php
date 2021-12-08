@@ -97,24 +97,22 @@ class LoginController extends Controller
     {
         $user = User::where('email', '=', $data->email)->first();
         if(!$user){
+                $user = new User();
+                if($data->id == 72943362 ){
+                    $user->name = $data->nickname;
+                    $user->email = $data->email;
+                    $user->provider_id = $data->id;
+                    $user->image = $data->avatar;
+                }else{   
+                    $user->name = $data->name;
+                    $user->email = $data->email;
+                    $user->provider_id = $data->id;
+                    $user->image = $data->avatar;
+                }
+                
+                $user->save();
 
-        if ($data->id == 117969261527244690347) {
-            $user = new User();
-            $user->name = $data->name;
-            $user->email = $data->email;
-            $user->provider_id = $data->id;
-            $user->profile_photo_url = $data->avatar;
-            $user->save();
-            //Si se almacena la informacion con Github
-        }else if($data->id == 72943362 ){
-            $user = new User();
-            $user->name = $data->nickname;
-            $user->email = $data->email;
-            $user->provider_id = $data->id;
-            $user->profile_photo_url = $data->avatar;
-            $user->save();
         }
-    }
         Auth::login($user);
     }
 }
