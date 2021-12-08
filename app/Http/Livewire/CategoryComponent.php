@@ -103,4 +103,8 @@ class CategoryComponent extends Component
 
     }
 
+    public function addToCartCategory ($product_id){
+        $this->emit('addToCart', $product_id);
+    }
+
 }
