@@ -597,6 +597,9 @@
                                         <div class="product-price">
                                             <span class="price">S/ {{ $product->price }}</span>
                                         </div>
+                                        <div class="">
+                                            <span class="">By: {{ $product->user->name }}</span>
+                                        </div>
                                         <!-- End product price -->
 
                                         <div class="product-review">

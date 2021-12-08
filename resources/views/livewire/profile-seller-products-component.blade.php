@@ -89,28 +89,15 @@
                                             <img class="hover blur-up lazyload" data-src="{{ asset( 'storage/'.$product->image )}}" src="{{ asset( 'storage/'.$product->image )}}" alt="image" title="product"/>
                                             <!-- End hover image -->
                                             <!-- product label -->
-                                            <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">new</span></div>
+                                            <div class="product-labels rectangular"><span class="lbl pr-label1">new</span></div>
                                             <!-- End product label -->
                                         </a>
                                         <!-- end product image -->
                                         <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn btn-addto-cart" type="button">Comprar ahora</button>
-                                        </form>
                                         <div class="button-set">
                                             <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                 <i class="icon anm anm-search-plus-r"></i>
                                             </a>
-                                            <div class="wishlist-btn">
-                                                <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
-                                                    <i class="icon anm anm-heart-l"></i>
-                                                </a>
-                                            </div>
-                                            <div class="compare-btn">
-                                                <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                                    <i class="icon anm anm-random-r"></i>
-                                                </a>
-                                            </div>
                                         </div>
                                         <!-- end product button -->
                                     </div>
@@ -128,14 +115,6 @@
                                             <span class="price">S/ {{ $product->price }}</span>
                                         </div>
                                         <!-- End product price -->
-
-                                        <div class="product-review">
-                                            <i class="font-13 fa fa-star"></i>
-                                            <i class="font-13 fa fa-star"></i>
-                                            <i class="font-13 fa fa-star"></i>
-                                            <i class="font-13 fa fa-star-o"></i>
-                                            <i class="font-13 fa fa-star-o"></i>
-                                        </div>
                                     </div>
                                     <!-- End product details -->
                                 </div>

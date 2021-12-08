@@ -129,9 +129,9 @@
                     <a class="btn-dark btn-lg btn-block" style="background-color: #3b5998; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " href="{{ route('login.facebook')}}" role="button">
                       <i class="fa fa-facebook-official"></i>&emsp;Regístrate con Facebook
                     </a>
-                    <a class="btn-dark btn-lg btn-block" style="background-color: #737476; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " href="{{ route('login.github')}}"role="button">
+                    <!-- <a class="btn-dark btn-lg btn-block" style="background-color: #737476; font-size:15px; padding-top: 10px; padding-bottom: 10px; margin-top: 10px; margin-bottom: 10px; " href="{{ route('login.github')}}"role="button">
                       <i class="fa fa-github"></i>&emsp;Regístrate con Github</a>
-                      </div>
+                      </div> -->
                 </form>
 
               </div>
