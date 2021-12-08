@@ -58,16 +58,16 @@
 						<div class="wrap-icon right-section">
 
 							<div class="wrap-icon-section" style="width: 20%; margin-right: 45px;">
-								<div class="site-cart">
+								<!-- <div class="site-cart">
 								<a href="{{ url('/cart') }}" class="site-header__cart" title="Cart">
 									<i class="icon anm anm-bag-l"></i>
 									<span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
-								</a>
+								</a> -->
                         <!--Minicart Popup-->
                         
                     	@livewire('add-cart-component')
                         <!--End Minicart Popup-->
-								</div>
+								<!-- </div> -->
 							</div>
 							@if(Auth::user())
 								<div class="wrap-icon-section topbar-menu right-menu" style="width: 30%;">

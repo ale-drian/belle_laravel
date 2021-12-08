@@ -179,8 +179,8 @@
                                         </a>
                                         <!-- end product image -->
                                         <!-- Start product button -->
-                                        <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                            <button class="btn btn-addto-cart" type="button">Comprar ahora</button>
+                                        <form class="variants add" action="#" method="post">
+                                            <button class="btn btn-addto-cart" wire:click="addToCartCategory({{$product->id}})" type="button">Agregar a la bolsa</button>
                                         </form>
                                         <div class="button-set">
                                             <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
