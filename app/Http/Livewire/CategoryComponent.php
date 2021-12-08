@@ -21,8 +21,24 @@ class CategoryComponent extends Component
 
     public function mount( $category_id = '' )
     {
-        $this->products = $category_id == '' ? Product::all()
-        :  Product::where('category_idcategory',$category_id)->get();
+        if($category_id == ''){
+            $this->products =  Product::all();
+        }else{
+            $category = Category::find( $category_id );
+            if($category->category_idcategory == null){
+                $sub_category = Category::where("category_idcategory", '=', $category->id )->get();
+                $this->products = Product::where('category_idcategory',$category_id);
+                foreach($sub_category as $sub){
+                    $this->products = $this->products->orWhere('category_idcategory', $sub->id);
+                }
+                $this->products = $this->products->get();
+            }else{
+                $this->products = Product::where('category_idcategory',$category_id)->get();
+            }
+            // dd($this->products);
+        }
+
+        
     }
 
     public function render()

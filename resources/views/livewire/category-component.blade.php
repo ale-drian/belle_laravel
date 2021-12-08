@@ -15,9 +15,9 @@
                                 @if (count($category->sub_category)>0)
                                     <ul class="sublinks" style="display:block;">
                                         @foreach ($category->sub_category as $sub_category)
-                                            <li class="level2"><a href="#;" class="site-nav">{{ $sub_category->name }}</a></li>
+                                            <li class="level2"><a href="{{ route('category.name',['category_id'=>$sub_category->id ]) }}" class="site-nav">{{ $sub_category->name }}</a></li>
                                         @endforeach
-                                        <li class="level2"><a href="#;" class="site-nav">Ver todo</a></li>
+                                        <li class="level2"><a href="{{ route('category.name',['category_id'=>$category->id ]) }}" class="site-nav">Ver todo</a></li>
                                     </ul>
                                 @endif
                             </li>
@@ -69,7 +69,7 @@
                 </div>
                 <!--End Size Swatches-->
                 <!--Color Swatches-->
-                <div class="sidebar_widget filterBox filter-widget">
+                <!-- <div class="sidebar_widget filterBox filter-widget">
                     <div class="widget-title"><h2>Color</h2></div>
                     <div class="filter-color swacth-list clearfix">
                         <span class="swacth-btn black"></span>
@@ -89,7 +89,7 @@
                         <span class="swacth-btn dimGrey"></span>
                         <span class="swacth-btn khaki"></span>
                     </div>
-                </div>
+                </div> -->
                 <!--End Color Swatches-->
                 <!--Brand-->
                 <div class="sidebar_widget filterBox filter-widget">
