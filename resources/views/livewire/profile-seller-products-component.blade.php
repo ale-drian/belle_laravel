@@ -49,14 +49,16 @@
                             <div class="col-4 col-md-4 col-lg-4 text-right">
                                 <div class="filters-toolbar__item">
                                     <label for="SortBy" class="hidden">Ordenar</label>
-                                    <select name="SortBy" id="SortBy" class="filters-toolbar__input filters-toolbar__input--sort">
-                                        <option value="title-ascending" selected="selected">Ordenar</option>
-                                        <option>Ordenar, A-Z</option>
-                                        <option>Ordenar, Z-A</option>
-                                        <option>Precio de menor a mayor</option>
-                                        <option>Precio de mayor a menor</option>
-                                        <option>Fecha más reciente</option>
-                                        <option>Fecha menos reciente</option>
+                                    <select id="SortBy"
+                                            wire:change="applyOrd" wire:model="order"
+                                            class="filters-toolbar__input filters-toolbar__input--sort">
+                                        <option selected="selected">Ordenar</option>
+                                        <option value="ascName">Ordenar, A-Z</option>
+                                        <option value="descName">Ordenar, Z-A</option>
+                                        <option value="ascPrice">Precio de menor a mayor</option>
+                                        <option value="descPrice">Precio de mayor a menor</option>
+                                        <option value="ascDate">Fecha más reciente</option>
+                                        <option value="descDate">Fecha menos reciente</option>
                                     </select>
                                     <input class="collection-header__default-sort" type="hidden" value="manual">
                                 </div>
@@ -125,4 +127,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </main>

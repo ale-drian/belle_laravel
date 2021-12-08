@@ -13,22 +13,22 @@
                 <div class="wrap-contacts ">
                     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                         <div class="contact-box contact-form">
-                            <h2 class="box-title">Leave a Message</h2>
-                            <form action="#" method="get" name="frm-contact">
-
+                            <h2 class="box-title">Deja un Mensaje</h2>
+                            <form action="{{ route('contact') }}" method="POST" name="frm-contact">
+                                @csrf
                                 <label for="name">Nombre<span>*</span></label>
                                 <input type="text" value="" id="name" name="name">
 
                                 <label for="email">Email<span>*</span></label>
                                 <input type="text" value="" id="email" name="email">
 
-                                <label for="phone">Numero de telefono</label>
-                                <input type="text" value="" id="phone" name="phone">
+                                <label for="phone">Asunto</label>
+                                <input type="text" value="" id="subject" name="subject">
 
                                 <label for="comment">Mensaje</label>
-                                <textarea name="comment" id="comment"></textarea>
+                                <textarea name="body" id="body"></textarea>
 
-                                <input type="submit" name="ok" value="Submit">
+                                <input type="submit" name="ok" value="Enviar Mensaje">
 
                             </form>
                         </div>

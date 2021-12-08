@@ -20,6 +20,7 @@ use App\Http\Livewire\ProfileBuyerProductsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\MailController;
 
 
 /*
@@ -59,7 +60,9 @@ Route::get('/product-category/{category_slug}', CategoryComponent::class)->name(
 
 Route::get('/search', SearchComponent::class)->name('product.search');
 
-Route::get('/contact-us', ContactUsComponent::class);
+Route::get('/contact-us', ContactUsComponent::class)->name('contact-page');
+//Route::get('/contact-us','App\Http\Livewire\ContactUsComponent@render');
+Route::post('/contact-us','App\Http\Livewire\ContactUsComponent@postContact')->name('contact');
 
 Route::get('/about-us', AboutUsComponent::class);
 
@@ -102,3 +105,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
+
+//Enviar correo de Bienvenida
+Route::get('/send-email-bienvenida',[MailController::class,'sendEmail']);
