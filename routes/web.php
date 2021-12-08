@@ -20,6 +20,7 @@ use App\Http\Livewire\ProfileBuyerProductsComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\MailController;
 
 
 /*
@@ -102,3 +103,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
+
+//Enviar correo de Bienvenida
+Route::get('/send-email-bienvenida',[MailController::class,'sendEmail']);
