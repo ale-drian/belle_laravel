@@ -63,6 +63,10 @@
 									<i class="icon anm anm-bag-l"></i>
 									<span id="CartCount" class="site-header__cart-count" data-cart-render="item_count">2</span>
 								</a>
+                        <!--Minicart Popup-->
+                        
+                    	@livewire('add-cart-component')
+                        <!--End Minicart Popup-->
 								</div>
 							</div>
 							@if(Auth::user())

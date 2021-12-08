@@ -479,7 +479,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { opacity:1; -ms-fil
 .grid-view-item--sold-out .grid-view-item__image { opacity:0.5; }
 .sold-out { position:absolute; top:0; width:100%; left:0; height:100%; }
 .sold-out span { color:#000 !important; position:absolute; top:50%; left:0; right:0; text-transform:uppercase; letter-spacing:0.08em; text-align:center; }
-.variants.add button { color:#000000; background-color:#ffffff; width:100%; text-transform:uppercase; -ms-transition:all 0.3s ease-in-out; -webkit-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; }
+.variants.add button { color:white; background-color:#ffffff; width:100%; text-transform:uppercase; -ms-transition:all 0.3s ease-in-out; -webkit-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; }
 .variants.add { position:absolute; bottom:-50px; -ms-transition:all 0.3s ease-in-out; -webkit-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; left:5px; right:5px; }
 .product-image:hover .variants.add { bottom:5px; }
 .button-set { position:absolute; right:5px; top:30px; opacity:0; -ms-transition:all 0.5s ease-in-out; -webkit-transition:all 0.5s ease-in-out; transition:all 0.5s ease-in-out; }
