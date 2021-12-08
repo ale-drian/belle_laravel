@@ -60,7 +60,9 @@ Route::get('/product-category/{category_slug}', CategoryComponent::class)->name(
 
 Route::get('/search', SearchComponent::class)->name('product.search');
 
-Route::get('/contact-us', ContactUsComponent::class);
+Route::get('/contact-us', ContactUsComponent::class)->name('contact-page');
+//Route::get('/contact-us','App\Http\Livewire\ContactUsComponent@render');
+Route::post('/contact-us','App\Http\Livewire\ContactUsComponent@postContact')->name('contact');
 
 Route::get('/about-us', AboutUsComponent::class);
 
