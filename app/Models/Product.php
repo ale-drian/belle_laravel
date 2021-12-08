@@ -34,8 +34,8 @@ class Product extends Model
     {
         return $this->hasMany(Purchase::class);
     }
-    public function comments()
+    /*public function comments()
     {
         return $this->hasMany(Comments::class);
-    }
+    }*/
 }

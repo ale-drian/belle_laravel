@@ -14,13 +14,13 @@ class Comments extends Model
         'content'
     ];
 
-    public function product()
+    public function userComment()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(User::class,'user_iduser_comment');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_iduser');
     }
 }
