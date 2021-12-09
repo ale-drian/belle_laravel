@@ -37,8 +37,7 @@
                                 <div class="prInfoRow">
                                     <div class="product-stock"> <span class="instock ">{{ $product->state }}</span>
                                         <span class="outstock hide">Unavailable</span> </div>
-                                    <div class="product-sku">Vendedor: <span class="variant-sku">{{ $product->user->name
-                                            }}</span></div>
+                                    <div class="product-sku">Vendedor: <a href="{{ route('profile-seller-public',['id'=> $product->user->id]) }}" class="variant-sku">{{ $product->user->name }}</a></div>
                                     <div class="product-review"><a class="reviewLink" href="#tab2"><i
                                                 class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i
                                                 class="font-13 fa fa-star"></i><i class="font-13 fa fa-star-o"></i><i

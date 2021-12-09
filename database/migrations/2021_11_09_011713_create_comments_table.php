@@ -18,11 +18,11 @@ class CreateCommentsTable extends Migration
             $table->timestamp('publication_date');
             $table->string('content');
             $table->unsignedBigInteger('user_iduser');
-            $table->unsignedBigInteger('product_idproduct');
+            $table->unsignedBigInteger('user_iduser_comment');
             $table->foreign('user_iduser')
-            ->references('id')->on('users');
-            $table->foreign('product_idproduct')
-                ->references('id')->on('products');
+                    ->references('id')->on('users');
+            $table->foreign('user_iduser_comment')
+                    ->references('id')->on('users');
             $table->timestamps();
         });
     }
