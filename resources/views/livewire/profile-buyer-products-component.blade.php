@@ -72,7 +72,7 @@
                                 <div class="alert alert-warning text-center h-100">
                                     <span>Aun no tiene productos</span>
                                 </div>
-                                <a class="btn" a href="{{ url('/sell') }}">Vender</a>
+                                <a class="btn" a href="{{ url('/category') }}">Comprar</a>
                             </div>
                         @else
                             @foreach($products as $product)
