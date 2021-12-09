@@ -31,9 +31,9 @@ class CategoryComponent extends Component
                 foreach($sub_category as $sub){
                     $this->products = $this->products->orWhere('category_idcategory', $sub->id);
                 }
-                $this->products = $this->products->get();
+                $this->products = $this->products->where("state","=","Disponible")->get();
             }else{
-                $this->products = Product::where('category_idcategory',$category_id)->get();
+                $this->products = Product::where('category_idcategory',$category_id)->where("state","=","Disponible")->get();
             }
             // dd($this->products);
         }

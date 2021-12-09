@@ -55,6 +55,7 @@ class SellComponent extends Component
         $product->save();
 
         $this->cleanData();
+        return redirect('/profile/sell');
     }
 
     public function render()
