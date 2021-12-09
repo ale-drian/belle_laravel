@@ -12,6 +12,7 @@ class AddCartComponent extends Component
 {
     
     public $products_cart;
+    public $display_block = false;
     protected $listeners = ['addToCart'];
 
     public function render()
@@ -20,7 +21,7 @@ class AddCartComponent extends Component
             $user = Auth::user();
             $this->products_cart = Cart::where('user_iduser','=',$user->id)->get();
         }
-        return view('livewire.add-cart-component', ['products_cart' => $this->products_cart]);
+        return view('livewire.add-cart-component', ['products_cart' => $this->products_cart, 'display_block' => $this->display_block]);
     }
 
     public function addToCart($product_id)
@@ -43,27 +44,42 @@ class AddCartComponent extends Component
             $cart->user_iduser = $user->id;
             $cart->save();
         }
+        $this->display_block = true;
         $this->render();
     }
 
-    public function increaseQuantity($rowId)
+    public function increaseQuantity($product_cart_id)
     {
-        $product = Cart::get($rowId);
-        $qty = $product->qty + 1;
-        Cart::update($rowId, $qty);
+        $product_cart = Cart::find($product_cart_id);
+        $product_cart->product_count ++;
+        $product_cart->save();
+        $product_cart->price_total = $product_cart->price_unit * $product_cart->product_count;
+        $product_cart->save();
+        $this->display_block = true;
+        // $this->render();
     }
 
-    public function descreaseQuantity($rowId)
+    public function descreaseQuantity($product_cart_id)
     {
-        $product = Cart::get($rowId);
-        $qty = $product->qty - 1;
-        Cart::update($rowId, $qty);
+        $product_cart = Cart::find($product_cart_id);
+        $product_cart->product_count --;
+        $product_cart->save();
+        $product_cart->price_total = $product_cart->price_unit * $product_cart->product_count;
+        $product_cart->save();
+        $this->display_block = true;
+        // $this->render();
     }
 
-    public function destroy($rowId)
+    public function destroy($product_cart_id)
     {
-        Cart::remove($rowId);
-        session()->flash('success_message', 'Item has been removed');
+        $product_cart = Cart::find($product_cart_id);
+        $product_cart->delete();
+        $this->display_block = true;
+        // $this->render();
+    }
+
+    public function display_none(){
+        $this->display_block = false;
     }
 
     public function destroyAll()
