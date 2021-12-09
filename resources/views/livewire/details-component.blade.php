@@ -112,16 +112,16 @@
                                     <!-- Product Action -->
                                     <div class="product-action clearfix">
                                         <div class="product-form__item--submit row">
-                                            <div class="col-6">
+                                            <div class="col-12">
                                                 <button type="button" name="add" class="btn product-form__cart-submit" wire:click="addToCartDetail({{$product->id}})">
                                                     <span id="AddToCartText-product-template">Agregar a la bolsa</span>
                                                 </button>
                                             </div>
-                                            <div class="col-6">
+                                            <!-- <div class="col-6">
                                                 <button type="button" name="add" class="btn product-form__cart-submit">
-                                                    <span id="AddToCartText-product-template">Comprar ahora</span>
+                                                    <span id="AddToCartText-product-template"><a href="{{ route('product.cart') }}">Comprar ahora</a></span>
                                                 </button>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <!-- End Product Action -->
