@@ -150,9 +150,6 @@
                             <li class="level1">
                                 <a href="{{ route('profile-buy') }}" class="site-nav">Productos Comprados</a>
                             </li>
-                            <li class="level1">
-                                <a href="{{ route('profile.show') }}" class="site-nav">Carrito</a>
-                            </li>
                         </ul>
                     </div>
                 </div>

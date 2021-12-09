@@ -10,16 +10,13 @@
                     <div class="widget-content">
                         <ul class="sidebar_categories">
                             <li class="level1">
-                                <a href="{{ route('profile') }}" class="site-nav">Configuración</a>
+                                <a href="{{ route('profile.show') }}" class="site-nav">Configuración</a>
                             </li>
                             <li class="level1">
-                                <a href="{{ route('profile') }}" class="site-nav">Productos Vendidos</a>
+                                <a href="{{ route('profile-sell') }}" class="site-nav">Productos Vendidos</a>
                             </li>
                             <li class="level1">
-                                <a href="{{ route('profile') }}" class="site-nav">Productos Comprados</a>
-                            </li>
-                            <li class="level1">
-                                <a href="{{ route('profile') }}" class="site-nav">Carrito</a>
+                                <a href="{{ route('profile-buy') }}" class="site-nav">Productos Comprados</a>
                             </li>
                         </ul>
                     </div>
