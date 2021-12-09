@@ -23,6 +23,7 @@ class CreateCommentsTable extends Migration
                     ->references('id')->on('users');
             $table->foreign('user_iduser_comment')
                     ->references('id')->on('users');
+            $table->integer('star')->nulleable;
             $table->timestamps();
         });
     }

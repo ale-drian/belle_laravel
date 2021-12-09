@@ -35,14 +35,32 @@
                                     <img src="{{ Auth::user()->profile_photo_path == '' ? Auth::user()->profile_photo_url: asset( 'storage/'.Auth::user()->profile_photo_path ) }}" alt="">
                                 </div>
                                 <div class="comment-textarea">
+                                    <b>Calificación</b>
+                                    <br/>
+                                    <p class="clasificacion">
+                                        <input wire:model="commentStar" id="radio1" type="radio" name="estrellas" value="5">
+                                        <label for="radio1">★</label>
+                                        <input wire:model="commentStar" id="radio2" type="radio" name="estrellas" value="4">
+                                        <label for="radio2">★</label>
+                                        <input wire:model="commentStar" id="radio3" type="radio" name="estrellas" value="3">
+                                        <label for="radio3">★</label>
+                                        <input wire:model="commentStar" id="radio4" type="radio" name="estrellas" value="2">
+                                        <label for="radio4">★</label>
+                                        <input wire:model="commentStar" id="radio5" type="radio" name="estrellas" value="1">
+                                        <label for="radio5">★</label>
+                                    </p>
+                                    <br/>
+                                    <b>Comentario</b>
+                                    <br/>
                                             <textarea name=""
                                                       id=""
                                                       wire:model="contentComment"
                                                       class="comment-textarea__input"
                                                       cols="20" rows="1"></textarea>
-                                </div>
-                                <div class="comment-btn">
-                                    <button class="btn" wire:click="submitComment">Enviar</button>
+                                    <br/>
+                                    <div class="comment-btn">
+                                        <button class="btn" wire:click="submitComment">Enviar</button>
+                                    </div>
                                 </div>
                             </div>
 
