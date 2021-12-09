@@ -103,21 +103,19 @@
                         @if( count($products) == 0)
                             <div class="col-12">
                                 <div class="alert alert-warning text-center h-100">
-                                    <span>Aun no tiene productos</span>
+                                    <span>No tiene productos</span>
                                 </div>
                             </div>
                         @else
                             @foreach($products as $product)
                                 <div class="product-public">
                                     <div class="product-image-public">
-                                        <a href="#">
                                             <img class="primary blur-up lazyload" data-src="{{ asset( 'storage/'.$product->image ) }}" src="{{ asset( 'storage/'.$product->image )}}" alt="image" title="product"/>
-                                                                                   </a>
                                     </div>
 
                                     <div class="product-details-public">
                                         <div class="product-name">
-                                            <span>{{ $product->name }}</span>
+                                            <span><a href="{{ route('product.details', ['slug'=> $product->id]) }}">{{ $product->name }}</a></span>
                                         </div>
                                         <div class="product-category">
                                             <span>{{ $product->category->name }}</span>
@@ -130,6 +128,7 @@
                                                 <span>{{ $product->updated_at }} </span>
                                             </div>
                                         </div>
+                                        <a class="btn" href="{{ route('product.details', ['slug'=> $product->id]) }}">Ver Detalle</a>
                                     </div>
                                 </div>
                             @endforeach
