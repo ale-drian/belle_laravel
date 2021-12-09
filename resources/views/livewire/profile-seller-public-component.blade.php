@@ -70,9 +70,20 @@
                                        <div class="container-comment__user">
                                            <span>{{ $comment->userComment->name }}</span>
                                        </div>
+                                        <p class="rate_coment">
+                                            <label class="rate">({{$comment->star}})</ class="rate">
+                                            @for ($i = 5; $i > 0; $i--)
+                                                @if($i <= $comment->star)
+                                                    <label class="star_yellow">★</label>
+                                                @else
+                                                    <label class="star_blue">★</label>
+                                                @endif
+                                            @endfor
+                                        </p>
                                        <div class="container-comment__content">
                                            <p>{{ $comment->content }}</p>
-                                       {{ \Carbon\Carbon::parse($comment->publication_date)->diffForHumans() }}
+                                           
+                                            {{ \Carbon\Carbon::parse($comment->publication_date)->diffForHumans() }}
                                        </div>
                                    </div>
                                @endforeach

@@ -11,7 +11,8 @@ class Comments extends Model
 
     protected $fillable = [
         'publication_date',
-        'content'
+        'content',
+        'star'
     ];
 
     public function userComment()
