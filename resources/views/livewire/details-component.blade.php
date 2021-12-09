@@ -113,7 +113,7 @@
                                     <div class="product-action clearfix">
                                         <div class="product-form__item--submit row">
                                             <div class="col-6">
-                                                <button type="button" name="add" class="btn product-form__cart-submit">
+                                                <button type="button" name="add" class="btn product-form__cart-submit" wire:click="addToCartDetail({{$product->id}})">
                                                     <span id="AddToCartText-product-template">Agregar a la bolsa</span>
                                                 </button>
                                             </div>

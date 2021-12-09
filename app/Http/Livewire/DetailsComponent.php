@@ -30,4 +30,8 @@ class DetailsComponent extends Component
 
         return redirect()->route('product.cart');
     }
+
+    public function addToCartDetail ($product_id){
+        $this->emit('addToCart', $product_id);
+    }
 }
