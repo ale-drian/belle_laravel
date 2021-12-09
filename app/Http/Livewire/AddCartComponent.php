@@ -13,7 +13,7 @@ class AddCartComponent extends Component
     
     public $products_cart;
     public $display_block = false;
-    protected $listeners = ['addToCart'];
+    protected $listeners = ['addToCart','re_render'];
 
     public function render()
     {
@@ -76,6 +76,10 @@ class AddCartComponent extends Component
         $product_cart->delete();
         $this->display_block = true;
         // $this->render();
+    }
+
+    public function re_render(){
+        $this->render();
     }
 
     public function display_none(){
