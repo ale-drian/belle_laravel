@@ -1,5 +1,12 @@
 <main id="main" class="main-site">
-
+    @php
+        // SDK de Mercado Pago
+        require base_path('/vendor/autoload.php');
+        // Agrega credenciales
+        MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
+        // Crea un objeto de preferencia
+        $preference = new MercadoPago\Preference();
+    @endphp
     <div class="container">
 
         <div class="wrap-breadcrumb">
@@ -13,7 +20,7 @@
     <div id="page-content">
     	<!--Page Title-->
         <!--End Page Title-->
-        
+    
         <div class="container">
         	<div class="row">
                 <div class="col-12 col-sm-12 col-md-8 col-lg-8 main-col">
@@ -68,12 +75,27 @@
                                         <td class="text-center small--hide"><a wire:click="destroyCart({{ $prod->id }})" class="btn btn--secondary cart__remove" style="background: #2da4a5 !important; color: white !important" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
                                     </tr>
                                         @php
-                                            $total += $prod->price_unit
+                                            $total += $prod->price_unit;
+                                            // Crea un ítem en la preferencia
+                                            $item = new MercadoPago\Item();
+                                            $item->title = $prod->product->name;
+                                            $item->quantity = 1;
+                                            $item->unit_price = $prod->price_unit;
+                                            $products[] = $item
                                         @endphp
                                     @endforeach
                                     @php
                                         $sub_total = round($total/1.18,2);
                                         $igv=$total - $sub_total;
+                                        $preference->items = $products;
+                                        //return
+                                        $preference->back_urls = array(
+                                            "success" => route('checkout'),
+                                            "failure" => route('product.cart'),
+                                            "pending" => route('product.cart'),
+                                        );
+                                        $preference->auto_return = "approved";
+                                        $preference->save();
                                     @endphp
                                 @endif
                                 
@@ -107,7 +129,9 @@
                           <input type="checkbox" name="tearm" id="cartTearm" class="checkbox" value="tearm" required="" style="display: inline; margin: 0px;">
                            Acepto los terminos y condiciones</label>
                       </p>
-                      <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="PAGAR" >
+                      <div class="cho-container btn" style="width: 100%;">
+                          <!-- <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="PAGAR" > -->
+                      </div>
                       <!-- <input type="submit" name="checkout" id="cartCheckout" class="btn btn--small-wide checkout" value="PAGAR" disabled="disabled"> -->
                       <div class="paymnet-img"><img src="{{asset('assets_belle/images/mercadopago.png')}}" alt="Payment"></div>
                     </div>
@@ -121,5 +145,22 @@
           
     </div>
     <!--end container-->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script>
+        // Agrega credenciales de SDK
+        const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
+                locale: 'es-AR'
+        });
 
+        // Inicializa el checkout
+        mp.checkout({
+            preference: {
+                id: '{{ $preference->id }}'
+            },
+            render: {
+                    container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
+                    label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+            }
+        });
+    </script>
 </main>

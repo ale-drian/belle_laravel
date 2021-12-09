@@ -45,5 +45,9 @@ return [
         'redirect' => 'http://localhost:8080/belle_laravel/public/login/github/callback',
     ],
 
+    'mercadopago' => [
+        'key' => env('MP_PUBLIC_KEY'),
+        'token' => env('MP_ACCESS_TOKEN'),
+    ],
 
 ];

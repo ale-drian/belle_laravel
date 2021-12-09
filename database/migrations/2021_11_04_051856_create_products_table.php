@@ -20,10 +20,13 @@ class CreateProductsTable extends Migration
             $table->string('state');
             $table->string('image');
             $table->unsignedBigInteger('user_iduser_seller')->nullable();
+            $table->unsignedBigInteger('user_iduser_buyer')->nullable();
             $table->unsignedBigInteger('category_idcategory');
             $table->unsignedBigInteger('size_idsize');
             $table->unsignedBigInteger('brand_idbrand');
             $table->foreign('user_iduser_seller')
+                ->references('id')->on('users');
+            $table->foreign('user_iduser_buyer')
                 ->references('id')->on('users');
             $table->foreign('category_idcategory')
                 ->references('id')->on('categories');

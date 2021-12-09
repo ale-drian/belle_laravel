@@ -7209,3 +7209,13 @@ svg {
 .wrap-pagination-info .rounded-r-md {
     margin-left: 5px;
 }
+
+.mercadopago-button {
+    background-color: #000000 !important;
+    text-transform: uppercase !important;
+    font-size: 16px !important;
+    padding: 5px !important;
+    line-height: 1 !important;
+    width: 100% !important;
+    margin: 0;
+}

@@ -18,6 +18,10 @@ class Product extends Model
     {
         return $this->belongsTo(User::class,'user_iduser_seller');
     }
+    public function buyer()
+    {
+        return $this->belongsTo(User::class,'user_iduser_buyer');
+    }
     public function category()
     {
         return $this->belongsTo(Category::class,'category_idcategory');
