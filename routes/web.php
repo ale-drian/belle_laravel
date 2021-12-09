@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\MailController;
 use App\Http\Livewire\ProfileSellerPublicComponent;
+use App\Http\Livewire\SellUpdateComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,11 +43,13 @@ Route::get('/', function () {
 
 Route::get('/', HomeComponent::class)->name('index');;
 
-Route::get('/category', CategoryComponent::class);
+Route::get('/category', CategoryComponent::class)->name('category');
 
 Route::get('/category/{category_id}',CategoryComponent::class)->name('category.name');
 
 Route::get('/sell', SellComponent::class)->middleware('auth');
+
+Route::get('/sell-update/{id}', SellUpdateComponent::class)->name('sell-update')->middleware('auth');
 
 Route::get('/shop', ShopComponent::class);
 
