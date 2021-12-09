@@ -216,13 +216,15 @@
                                             <span class="">By: {{ $product->user->name }}</span>
                                         </div>
                                         <!-- End product price -->
-                                        <div class="product-review">
-                                            <i class="font-13 fa fa-star"></i>
-                                            <i class="font-13 fa fa-star"></i>
-                                            <i class="font-13 fa fa-star"></i>
-                                            <i class="font-13 fa fa-star-o"></i>
-                                            <i class="font-13 fa fa-star-o"></i>
-                                        </div>
+                                        <p class="rate_coment">
+                                            @for ($i = 5; $i > 0; $i--)
+                                                @if($i <= $product->user->rate)
+                                                    <label class="star_yellow">★</label>
+                                                @else
+                                                    <label class="star_blue">★</label>
+                                                @endif
+                                            @endfor
+                                        </p>
                                     </div>
                                     <!-- End product details -->
                                 </div>

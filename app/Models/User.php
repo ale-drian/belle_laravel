@@ -70,7 +70,7 @@ class User extends Authenticatable
     }
     public function commets()
     {
-        return $this->hasMany(Comments::class);
+        return $this->hasMany(Comments::class, 'user_iduser', 'id');
     }
     public function deposits()
     {

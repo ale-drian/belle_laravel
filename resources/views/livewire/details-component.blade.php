@@ -51,60 +51,90 @@
                                                 $product->price }}</span></span>
                                     </span>
                                 </p>
-                                <div class="product-single__description rte">
+                                <!-- <div class="product-single__description rte">
                                     <p>But I must explain to you how all this mistaken idea of denouncing pleasure
                                         and praising pain was born and I will give you a complete account of the
                                         system, and expound the actual teachings of the great explorer of the truth,
                                         the master-builder of human happiness.</p>
-                                </div>
+                                </div> -->
                                 <form method="post" action="http://annimexweb.com/cart/add"
                                     id="product_form_10508262282" accept-charset="UTF-8"
                                     class="product-form product-form-product-template hidedropdown"
                                     enctype="multipart/form-data">
-                                    <div class="swatch clearfix swatch-0 option1" data-option-index="0">
-                                        <div class="product-form__item">
-                                            <label class="header">Color: <span class="slVariant">Rojo -
-                                                    Amarillo</span></label>
-                                        </div>
-                                    </div>
 
                                     <div class="swatch clearfix swatch-1 option2" data-option-index="1">
+                                        @if($product->category->category_idcategory == null)
+                                            <div class="product-form__item">
+                                                <label class="header">Categoría: <span class="slVariant">{{
+                                                        $product->category->name }}</span></label>
+                                            </div>
+                                        @else
+                                            <div class="product-form__item">
+                                                <label class="header">Categoría: &nbsp;&nbsp;<span class="slVariant">{{
+                                                        $product->category->category->name }}</span></label>
+                                            </div>
+                                            <div class="product-form__item">
+                                                <label class="header">Sub Categoría: &nbsp;&nbsp;<span class="slVariant">{{
+                                                        $product->category->name }}</span></label>
+                                            </div>
+                                        @endif
                                         <div class="product-form__item">
-                                            <label class="header">Tipo: <span class="slVariant">Mujer</span></label>
-                                        </div>
-                                    </div>
-                                    <div class="swatch clearfix swatch-1 option2" data-option-index="1">
-                                        <div class="product-form__item">
-                                            <label class="header">Categoría: <span class="slVariant">{{
-                                                    $product->category->name }}</span></label>
-                                        </div>
-                                    </div>
-                                    <div class="swatch clearfix swatch-1 option2" data-option-index="1">
-                                        <div class="product-form__item">
-                                            <label class="header">Talla: <span class="slVariant">{{ $product->size->name
+                                            <label class="header">Talla: &nbsp;&nbsp;<span class="slVariant">{{ $product->size->name
                                                     }}</span></label>
                                         </div>
+                                    </div>
+                                    <div class="swatch clearfix swatch-1 option2" data-option-index="1">
+                                    </div>
+
+                                    <div class="swatch clearfix swatch-1 option2 cuadrado" data-option-index="1">
+                                        <div class="product-form__item">
+                                            <label class="header">Vendedor: &nbsp;&nbsp;<span class="slVariant"><a href="{{ route('profile-seller-public',['id'=> $product->user->id]) }}">{{ $product->user->name }}</a></span></label>
+                                        </div>
+                                        <div class="product-form__item">
+                                            <label class="header">Calificación: &nbsp;&nbsp;
+                                                <span class="slVariant">
+                                                <div class="product-review">
+                                                @for ($i = 5; $i > 0; $i--)
+                                                    @if($i <= $product->user->rate)
+                                                        <i class="font-13 fa fa-star"></i>
+                                                    @else
+                                                        <i class="font-13 fa fa-star-o"></i>
+                                                    @endif
+                                                @endfor
+                                                </div>
+                                                </span>
+                                            </label>
+                                            <span class="spr-badge-caption">{{count($product->user->commets)}} Comentarios</span>
+                                        </div>
+                                        <a class="btn mt-4" href="{{ route('profile-seller-public',['id'=> $product->user->id]) }}">Ver Vendedor</a>
                                     </div>
 
                                     <!-- Product Action -->
                                     <div class="product-action clearfix">
-                                        <div class="product-form__item--submit">
-                                            <button type="button" name="add" class="btn product-form__cart-submit">
-                                                <span id="AddToCartText-product-template">Comprar ahora</span>
-                                            </button>
+                                        <div class="product-form__item--submit row">
+                                            <div class="col-6">
+                                                <button type="button" name="add" class="btn product-form__cart-submit">
+                                                    <span id="AddToCartText-product-template">Agregar a la bolsa</span>
+                                                </button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button type="button" name="add" class="btn product-form__cart-submit">
+                                                    <span id="AddToCartText-product-template">Comprar ahora</span>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- End Product Action -->
                                 </form>
                                 <div class="display-table shareRow">
-                                    <div class="display-table-cell medium-up--one-third">
+                                    <!-- <div class="display-table-cell medium-up--one-third">
                                         <div class="wishlist-btn">
                                             <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist"><i
                                                     class="icon anm anm-heart-l" aria-hidden="true"></i> <span>Lista de
                                                     Deseos</span></a>
                                         </div>
-                                    </div>
-                                    <div class="display-table-cell text-right">
+                                    </div> -->
+                                    <!-- <div class="display-table-cell text-right">
                                         <div class="social-sharing">
                                             <a target="_blank" href="#"
                                                 class="btn btn--small btn--secondary btn--share share-facebook"
@@ -130,375 +160,35 @@
                                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                             </a>
                                         </div>
+                                    </div> -->
+                                                    
+                                    <!--Product Fearure-->
+                                    <div class="prFeatures">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 feature">
+                                                <img src="{{asset('assets_belle/images/credit-card.png')}}" alt="Safe Payment"
+                                                    title="Safe Payment" />
+                                                <div class="details">
+                                                    <h3>Pago Seguro</h3>Con cualquier método de pago.
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 feature">
+                                                <img src="{{ asset('assets_belle/images/shield.png') }}" alt="Confidence"
+                                                    title="Confidence" />
+                                                <div class="details">
+                                                    <h3>Confidencial</h3>Protección de tu compra y datos personales.
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <!--End Product Fearure-->
                                 </div>
                             </div>
 
                         </div>
                     </div>
                     <!--End-product-single-->
-                    <!--Product Fearure-->
-                    <div class="prFeatures">
-                        <div class="row">
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 feature">
-                                <img src="{{asset('assets_belle/images/credit-card.png')}}" alt="Safe Payment"
-                                    title="Safe Payment" />
-                                <div class="details">
-                                    <h3>Pago Seguro</h3>Con cualquier método de pago.
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-6 col-lg-3 feature">
-                                <img src="{{ asset('assets_belle/images/shield.png') }}" alt="Confidence"
-                                    title="Confidence" />
-                                <div class="details">
-                                    <h3>Confidencial</h3>Protección de tu compra y datos personales.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Product Fearure-->
                     <!--Product Tabs-->
-
-
-                    <!--Related Product Slider-->
-                    <div class="related-product grid-products">
-                        <header class="section-header">
-                            <h2 class="section-header__title text-center h2"><span>Productos Relacionados</span></h2>
-                            <p class="sub-heading">Quizás te interese los siguientes productos</p>
-                        </header>
-                        <div class="productPageSlider">
-                            <div class="col-12 item">
-                                <!-- start product image -->
-                                <div class="product-image">
-                                    <!-- start product image -->
-                                    <a href="#">
-                                        <!-- image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image1.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image1.jpg') }}"
-                                            alt="image" title="product">
-                                        <!-- End image -->
-                                        <!-- Hover image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image1.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image1.jpg') }}"
-                                            alt="image" title="product">
-                                        <!-- End hover image -->
-                                        <!-- product label -->
-                                        <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span>
-                                            <span class="lbl pr-label1">new</span></div>
-                                        <!-- End product label -->
-                                    </a>
-                                    <!-- end product image -->
-
-                                    <!-- Start product button -->
-                                    <form class="variants add" action="#" onclick="window.location.href='cart.html'"
-                                        method="post">
-                                        <button class="btn btn-addto-cart" type="button" tabindex="0">Select
-                                            Options</button>
-                                    </form>
-                                    <div class="button-set">
-                                        <a href="#" title="Quick View" class="quick-view" tabindex="0">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                                <i class="icon anm anm-heart-l"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                <!-- end product image -->
-                                <!--start product details -->
-                                <div class="product-details text-center">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="#">Edna Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="old-price">S/ 15.00</span>
-                                        <span class="price">S/ 16.00</span>
-                                    </div>
-                                    <!-- End product price -->
-
-                                    <div class="product-review">
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                    </div>
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                            <div class="col-12 item">
-                                <!-- start product image -->
-                                <div class="product-image">
-                                    <!-- start product image -->
-                                    <a href="#">
-                                        <!-- image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image4.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image4.jpg') }}"
-                                            alt="image" title="product">
-                                        <!-- End image -->
-                                        <!-- Hover image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image4.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image4.jpg') }}"
-                                            alt="image" title="product">
-                                        <!-- End hover image -->
-                                    </a>
-                                    <!-- end product image -->
-
-                                    <!-- Start product button -->
-                                    <form class="variants add" action="#" onclick="window.location.href='cart.html'"
-                                        method="post">
-                                        <button class="btn btn-addto-cart" type="button" tabindex="0">Select
-                                            Options</button>
-                                    </form>
-                                    <div class="button-set">
-                                        <a href="#" title="Quick View" class="quick-view" tabindex="0">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                                <i class="icon anm anm-heart-l"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                <!-- end product image -->
-
-                                <!--start product details -->
-                                <div class="product-details text-center">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="#">Elastic Waist Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="price">S/ 17.00</span>
-                                    </div>
-                                    <!-- End product price -->
-                                    <div class="product-review">
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                            <div class="col-12 item">
-                                <!-- start product image -->
-                                <div class="product-image">
-                                    <!-- start product image -->
-                                    <a href="#">
-                                        <!-- image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image3.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image3.jpg') }}"
-                                            alt="image" title="product">
-                                        <!-- End image -->
-                                        <!-- Hover image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image3.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image3.jpg') }}"
-                                            alt="image" title="product">
-                                        <!-- End hover image -->
-                                        <!-- product label -->
-                                        <div class="product-labels rectangular"><span class="lbl pr-label2">Hot</span>
-                                        </div>
-                                        <!-- End product label -->
-                                    </a>
-                                    <!-- end product image -->
-
-                                    <!-- Start product button -->
-                                    <form class="variants add" action="#" onclick="window.location.href='cart.html'"
-                                        method="post">
-                                        <button class="btn btn-addto-cart" type="button" tabindex="0">Select
-                                            Options</button>
-                                    </form>
-                                    <div class="button-set">
-                                        <a href="#" title="Quick View" class="quick-view" tabindex="0">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                                <i class="icon anm anm-heart-l"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                <!-- end product image -->
-
-                                <!--start product details -->
-                                <div class="product-details text-center">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="#">3/4 Sleeve Kimono Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="price">S/ 15.00</span>
-                                    </div>
-                                    <!-- End product price -->
-
-                                    <div class="product-review">
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                    </div>
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                            <div class="col-12 item">
-                                <!-- start product image -->
-                                <div class="product-image">
-                                    <!-- start product image -->
-                                    <a href="#">
-                                        <!-- image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image2.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image2.jpg') }}"
-                                            alt="image" title="product" />
-                                        <!-- End image -->
-                                        <!-- Hover image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image2.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image2.jpg') }}"
-                                            alt="image" title="product" />
-                                        <!-- End hover image -->
-                                        <!-- product label -->
-                                        <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
-                                        <!-- End product label -->
-                                    </a>
-                                    <!-- end product image -->
-
-                                    <!-- Start product button -->
-                                    <form class="variants add" action="#" onclick="window.location.href='cart.html'"
-                                        method="post">
-                                        <button class="btn btn-addto-cart" type="button" tabindex="0">Select
-                                            Options</button>
-                                    </form>
-                                    <div class="button-set">
-                                        <a href="#" title="Quick View" class="quick-view" tabindex="0">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                                <i class="icon anm anm-heart-l"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                <!-- end product image -->
-
-                                <!--start product details -->
-                                <div class="product-details text-center">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="#">Cape Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="old-price">S/ 19.00</span>
-                                        <span class="price">S/ 17.00</span>
-                                    </div>
-                                    <!-- End product price -->
-
-                                    <div class="product-review">
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                    </div>
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                            <div class="col-12 item">
-                                <!-- start product image -->
-                                <div class="product-image">
-                                    <!-- start product image -->
-                                    <a href="#">
-                                        <!-- image -->
-                                        <img class="primary blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image6.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image6.jpg') }}"
-                                            alt="image" title="product" />
-                                        <!-- End image -->
-                                        <!-- Hover image -->
-                                        <img class="hover blur-up lazyload"
-                                            data-src="{{ asset('assets_belle/images/product-images/aproduct-image6.jpg') }}"
-                                            src="{{ asset('assets_belle/images/product-images/aproduct-image6.jpg') }}"
-                                            alt="image" title="product" />
-                                        <!-- End hover image -->
-                                        <!-- product label -->
-                                        <div class="product-labels"><span class="lbl on-sale">Sale</span></div>
-                                        <!-- End product label -->
-                                    </a>
-                                    <!-- end product image -->
-
-                                    <!-- Start product button -->
-                                    <form class="variants add" action="#" onclick="window.location.href='cart.html'"
-                                        method="post">
-                                        <button class="btn btn-addto-cart" type="button" tabindex="0">Select
-                                            Options</button>
-                                    </form>
-                                    <div class="button-set">
-                                        <a href="#" title="Quick View" class="quick-view" tabindex="0">
-                                            <i class="icon anm anm-search-plus-r"></i>
-                                        </a>
-                                        <div class="wishlist-btn">
-                                            <a class="wishlist add-to-wishlist" href="wishlist.html">
-                                                <i class="icon anm anm-heart-l"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- end product button -->
-                                </div>
-                                <!-- end product image -->
-
-                                <!--start product details -->
-                                <div class="product-details text-center">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="#">Paper Dress</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="price">S/ 15.00</span>
-                                    </div>
-                                    <!-- End product price -->
-
-                                    <div class="product-review">
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                        <i class="font-13 fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <!-- End product details -->
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Related Product Slider-->
 
                     <!--Recently Product Slider-->
                     <!--End Recently Product Slider-->

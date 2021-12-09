@@ -53,6 +53,7 @@ class ProfileSellerPublicComponent extends Component
             }else{
                 $user_toComment->rate = $this->commentStar;
             }
+            $user_toComment->save();
         }
         $comment->save();
         $this->contentComment = '';
