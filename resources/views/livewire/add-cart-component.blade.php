@@ -46,8 +46,8 @@
             <span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">TOTAL:   S/. {{number_format($total, 2, '.', '')}}</span></span>
         </div>
         <div class="buttonSet text-center">
-            <a href="cart.html" class="btn btn-secondary btn--small">Ver Bolsa</a>
-            <a href="checkout.html" class="btn btn-secondary btn--small">Comprar</a>
+            <a href="{{ route('product.cart') }}" class="btn btn-secondary btn--small">Ver Bolsa</a>
+            <a href="{{ route('product.cart') }}" class="btn btn-secondary btn--small">Comprar</a>
         </div>
     </div>
     @else
@@ -56,7 +56,7 @@
             <br/>
             <p>Para agregar productos</p> <p>debe iniciar sesion</p>
             <br/>
-            <a href="cart.html" class="btn btn-secondary btn--small">Loogin</a>
+            <a href="{{ route('login') }}" class="btn btn-secondary btn--small">Loogin</a>
             <br/>
             <br/>
         </div>
