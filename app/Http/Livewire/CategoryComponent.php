@@ -22,7 +22,7 @@ class CategoryComponent extends Component
     public function mount( $category_id = '' )
     {
         if($category_id == ''){
-            $this->products =  Product::all();
+            $this->products =  Product::where("state","=","Disponible")->get();
         }else{
             $category = Category::find( $category_id );
             if($category->category_idcategory == null){

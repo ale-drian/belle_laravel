@@ -88,7 +88,11 @@
                                             <img class="hover blur-up lazyload" data-src="{{ asset( 'storage/'.$product->image )}}" src="{{ asset( 'storage/'.$product->image )}}" alt="image" title="product"/>
                                             <!-- End hover image -->
                                             <!-- product label -->
-                                            <div class="product-labels rectangular"><span class="lbl pr-label1">new</span></div>
+                                            
+                                            <div class="product-labels rectangular">
+                                                <span class="lbl on-sale">{{ $product->state == "Disponible" ? "SALE" : "VENDIDO"}}</span>
+                                                <span class="lbl pr-label1">new</span>
+                                            </div>
                                             <!-- End product label -->
                                         </a>
                                         <!-- end product image -->
@@ -105,11 +109,13 @@
                                     <!--start product details -->
                                     <div class="product-details text-center">
                                         <!-- product name -->
+                                        @if($product->state == "Disponible")
                                         <div>
-                                            <a href="{{ route('sell-update',['id'=> $product->id]) }}" class="text-info">
+                                            <a href="{{ route('sell-update',['id'=> $product->id]) }}" class="btn">
                                                 Editar
                                             </a>
                                         </div>
+                                        @endif
                                         <div class="product-name">
                                             <a href="product.html">{{ $product->name }}</a>
                                         </div>
