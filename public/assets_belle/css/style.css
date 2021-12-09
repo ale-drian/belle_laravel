@@ -185,7 +185,7 @@ th { font-family:"Roboto Slab",Helvetica,Tahoma,Arial,serif; font-weight:700; }
 .btn, .shopify-payment-button__button--unbranded { -moz-user-select:none; -ms-user-select:none; -webkit-user-select:none; user-select:none; -webkit-appearance:none; -moz-appearance:none; appearance:none; display:inline-block; width:auto; height:auto;
     text-decoration:none; text-align:center; vertical-align:middle; cursor:pointer; border:1px solid transparent; border-radius:0; padding:8px 15px 8px; background-color:#000 !important; color:#fff; font-family:Poppins,Helvetica,Tahoma,Arial,sans-serif;
     font-weight:400; text-transform:uppercase; letter-spacing:1px; line-height:normal; white-space:normal; font-size:13px; -ms-transition:all 0.3s ease-in-out; -webkit-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; }
-.btn:hover, .btn:focus, .shopify-payment-button__button--unbranded:hover, .shopify-payment-button__button--unbranded:focus { background-color:#1a1a1a; opacity:0.8; color:#fff; text-decoration:none; }
+.btn:hover, .btn:focus, .shopify-payment-button__button--unbranded:hover, .shopify-payment-button__button--unbranded:focus { background-color:black; opacity:0.8; color:#fff !important; text-decoration:none; }
 .btn--small { padding:8px 10px; font-size:0.92308em; line-height:1; }
 .btn--secondary { background-color:#ededed; color:#000 !important; border:1px solid #000 !important; }
 .btn--link { background-color:transparent; border:0; margin:0; color:#31a3a3; text-align:left; text-decoration:none; outline:none !important;box-shadow:none !important; }
@@ -244,7 +244,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { opacity:1; -ms-fil
 .site-header__cart-count { font-size:11px; display:inline-block; color:#fff; background-color:#000 !important; border-radius:50%; text-align:center; width:14px; height:14px; line-height:14px; position:absolute; right:-5px; bottom:0; }
 #header-cart { z-index:333; width:320px; margin-top:5px; display:none; background-color:#fff; border:1px solid #e8e9eb; position:absolute; top:100%; right:-5px; z-index:555; border-radius:0; }
 #header-cart hr { margin:20px 0 }
-#header-cart .btn { color:#fff; margin:0 2% 0 0; width:48%; padding:10px; }
+#header-cart .btn { color:#fff !important; margin:0 2% 0 0; width:48%; padding:10px; }
 #header-cart .btn:nth-of-type(2n){ margin-right:0; }
 #header-cart #cart-title { text-align:left; margin-bottom:0; }
 #header-cart #cart-title strong { color:#000000; }
