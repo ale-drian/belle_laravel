@@ -108,6 +108,11 @@
                                     <!--start product details -->
                                     <div class="product-details text-center">
                                         <!-- product name -->
+                                        <div>
+                                            <a href="{{ route('sell-update',['id'=> $product->id]) }}" class="text-info">
+                                                Editar
+                                            </a>
+                                        </div>
                                         <div class="product-name">
                                             <a href="product.html">{{ $product->name }}</a>
                                         </div>

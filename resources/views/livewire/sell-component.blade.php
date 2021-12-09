@@ -113,13 +113,6 @@
                         <div>
                             <img src="{{ $image->temporaryUrl() }}">
                         </div>
-                        {{-- <div class="row">
-                            @foreach($image as $img)
-                                <div class="col-3 card mb-1">
-                                    <img src="{{ $img->temporaryUrl() }}">
-                                </div>
-                            @endforeach
-                        </div> --}}
                     @endif
                     <div class="h-100 bg-placeholder-image shadow-sm flex align-items-center justify-content-center">
 
@@ -130,12 +123,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-    <!--End Body Content-->
-
 </div>
